@@ -1,4 +1,3 @@
-import { Head } from 'next/document'
 import * as S from './styles'
 
 export type HeadingProps = {
@@ -10,7 +9,7 @@ export type HeadingProps = {
 
 const Heading = ({
   children,
-  color = 'black',
+  color = 'white',
   lineLeft = false,
   lineBottom = false
 }: HeadingProps) => (
