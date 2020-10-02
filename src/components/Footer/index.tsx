@@ -13,7 +13,7 @@ const Footer = () => (
           Contact us
         </Heading>
 
-        <a href="mailto:sac@wongames.com">suporte@wongames.com</a>
+        <a href="mailto:sac@wongames.gg">sac@wongames.gg</a>
 
         <span>+55 21 33283719</span>
       </S.Column>

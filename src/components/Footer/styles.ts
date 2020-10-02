@@ -12,8 +12,7 @@ export const Wrapper = styled.footer`
 export const Content = styled.div`
   ${({ theme }) => css`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /*grid-template-columns: minmax(auto, 51%) 1fr;*/
+    grid-template-columns: minmax(auto, 50%) 1fr;
     gap: ${theme.grid.gutter};
     margin-top: ${theme.spacings.medium};
 
@@ -33,10 +32,10 @@ export const Column = styled.div`
       margin-bottom: ${theme.spacings.xxsmall};
       font-size: ${theme.font.sizes.small};
     }
-    /*a {
+    a {
       word-wrap: break-word;
       overflow-wrap: break-word;
-    }*/
+    }
     a:hover {
       text-decoration: underline;
     }
