@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Highlight /> should render headings and button 1`] = `
+<main
+  class=""
+>
+  <h2
+    class=""
+  >
+    Heading 1
+  </h2>
+  <h3
+    class=""
+  >
+    Heading 2
+  </h3>
+</main>
+`;
