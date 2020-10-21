@@ -82,9 +82,11 @@ const Home = ({
       </S.SectionFreeGames>
     </Container>
 
-    <Container>
-      <Footer />
-    </Container>
+    <S.SectionFooter>
+      <Container>
+        <Footer />
+      </Container>
+    </S.SectionFooter>
   </section>
 )
 
