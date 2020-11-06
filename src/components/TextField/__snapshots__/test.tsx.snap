@@ -113,7 +113,7 @@ exports[`<TextField /> should render with error 1`] = `
     </div>
     <input
       aria-busy="false"
-      aria-describedby="cd574adb-5606-47c1-9fb1-a8826edeeb18"
+      aria-describedby="error-message"
       aria-invalid="true"
       aria-live="polite"
       class="c8"
@@ -124,7 +124,7 @@ exports[`<TextField /> should render with error 1`] = `
   </div>
   <span
     class="c9"
-    id="cd574adb-5606-47c1-9fb1-a8826edeeb18"
+    id="error-message"
   >
     Error message
   </span>

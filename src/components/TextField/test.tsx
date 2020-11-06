@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { Email } from '@styled-icons/material-outlined'
 
+jest.mock('uuid', () => ({ v4: () => 'error-message' }))
+
 import TextField from '.'
 
 describe('<TextField />', () => {
