@@ -1,4 +1,5 @@
 import { useState, InputHTMLAttributes } from 'react'
+import { v4 as uuid } from 'uuid'
 
 import * as S from './styles'
 
@@ -35,6 +36,8 @@ const TextField = ({
     !!onInput && onInput(newValue)
   }
 
+  const errorMessageId: string = uuid()
+
   /**
    * In case of 'onInput' being an API call, use a debounce method to wait
    * instead of calling on every onChange event
@@ -51,12 +54,13 @@ const TextField = ({
           iconPosition={iconPosition}
           disabled={disabled}
           aria-live="polite"
-          aria-invalid={!!error}
           aria-busy={!!loading}
+          aria-invalid={!!error}
+          aria-describedby={errorMessageId}
           {...props}
         />
       </S.InputWrapper>
-      {!!error && <S.Error>{error}</S.Error>}
+      {!!error && <S.Error id={errorMessageId}>{error}</S.Error>}
       {loading && <S.Loading>{loading}</S.Loading>}
     </S.Wrapper>
   )
