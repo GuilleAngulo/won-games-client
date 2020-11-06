@@ -128,4 +128,18 @@ describe('<TextField />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render with loading', () => {
+    renderWithTheme(
+      <TextField
+        icon={<Email data-testid="icon" />}
+        id="TextField"
+        label="TextField"
+        labelFor="TextField"
+        loading="Validating..."
+      />
+    )
+
+    expect(screen.getByText('Validating...')).toBeInTheDocument()
+  })
 })

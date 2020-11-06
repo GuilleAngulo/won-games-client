@@ -80,15 +80,14 @@ export const Loading = styled.span`
 
     &::before {
       content: '';
-      top: 0.1rem;
-      left: 0.2rem;
-
+      top: 0;
+      left: 0;
       position: absolute;
-      border: 0.2rem solid rgba(0, 0, 0, 0.1);
+      border: 0.2rem solid ${theme.colors.lightGray};
       border-left-color: ${theme.colors.primary};
       border-radius: 50%;
-      width: 1.4rem;
-      height: 1.4rem;
+      width: ${theme.font.sizes.small};
+      height: ${theme.font.sizes.small};
       animation: spin 1s linear infinite;
       @keyframes spin {
         to {
