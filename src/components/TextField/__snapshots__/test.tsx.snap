@@ -112,6 +112,9 @@ exports[`<TextField /> should render with error 1`] = `
       </svg>
     </div>
     <input
+      aria-busy="false"
+      aria-invalid="true"
+      aria-live="polite"
       class="c8"
       id="TextField"
       type="text"

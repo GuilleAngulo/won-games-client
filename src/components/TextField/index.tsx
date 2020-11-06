@@ -50,6 +50,9 @@ const TextField = ({
           value={value}
           iconPosition={iconPosition}
           disabled={disabled}
+          aria-live="polite"
+          aria-invalid={!!error}
+          aria-busy={!!loading}
           {...props}
         />
       </S.InputWrapper>
