@@ -1,6 +1,5 @@
 
-This project is the result of the course [React Avançado](https://reactavancado.com.br/).
-![ci](https://github.com/React-Avancado/boilerplate/workflows/ci/badge.svg)
+This project is the result of the work developed at [React Avançado](https://reactavancado.com.br/).
 
 ## What is inside?
 
