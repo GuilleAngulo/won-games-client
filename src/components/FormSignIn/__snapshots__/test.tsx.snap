@@ -82,6 +82,19 @@ exports[`<FormSignIn /> should render the form 1`] = `
   width: 100%;
 }
 
+.c6 {
+  display: block;
+  font-size: 1.4rem;
+  color: #030517;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: right;
+}
+
+.c6:hover {
+  color: #0f1971;
+}
+
 .c0 .c1 {
   margin: 0.8rem 0;
 }
@@ -108,19 +121,6 @@ exports[`<FormSignIn /> should render the form 1`] = `
 .c9 a:hover {
   color: #29b3a3;
   border-bottom: 0.1rem solid #29b3a3;
-}
-
-.c6 {
-  display: block;
-  font-size: 1.4rem;
-  color: #030517;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: right;
-}
-
-.c6:hover {
-  color: #0f1971;
 }
 
 <body>
@@ -157,7 +157,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="7ff96e7a-7518-47fb-974e-aaf19aa5e4f9"
+              aria-describedby="b5c6378f-c727-48ec-af18-36531b29aa3a"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -203,7 +203,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="844e8527-c126-44e1-84ce-2197c765053e"
+              aria-describedby="18d4cca6-1741-48c5-93db-d47d96e1fd76"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
