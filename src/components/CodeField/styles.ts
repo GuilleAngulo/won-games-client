@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.main`
+export const InputWrapper = styled.main`
   display: flex;
   width: 100%;
   align-items: center;
