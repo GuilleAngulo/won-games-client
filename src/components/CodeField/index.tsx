@@ -3,9 +3,20 @@ import * as S from './styles'
 
 export type CodeFieldProps = {
   size?: number
+  label?: string
+  disabled?: boolean
+  error?: string
+  loading?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
-const CodeField = ({ size = 6, ...props }: CodeFieldProps) => {
+const CodeField = ({
+  size = 6,
+  label,
+  disabled = false,
+  error,
+  loading,
+  ...props
+}: CodeFieldProps) => {
   const [inputs, setInputs] = useState([])
 
   useEffect(() => {
@@ -14,8 +25,8 @@ const CodeField = ({ size = 6, ...props }: CodeFieldProps) => {
     )
   }, [size])
 
-  function handleChange(event: React.ChangeEvent) {
-    const element = event.target as HTMLInputElement
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const element = event.currentTarget
     const { value } = element
     const nextInput = element.nextElementSibling as HTMLInputElement
 
@@ -64,22 +75,28 @@ const CodeField = ({ size = 6, ...props }: CodeFieldProps) => {
   }
 
   return (
-    <S.InputWrapper>
-      {[...Array(size)].map((_, i) => {
-        return (
-          <S.Input
-            ref={inputs[i]}
-            key={i}
-            type="text"
-            maxLength={1}
-            onChange={handleChange}
-            onPaste={handlePaste}
-            onKeyDown={handleKeyDown}
-            {...props}
-          />
-        )
-      })}
-    </S.InputWrapper>
+    <S.Wrapper disabled={disabled} hasError={!!error} isLoading={!!loading}>
+      {!!label && <S.Legend>{label}</S.Legend>}
+      <S.InputWrapper>
+        {[...Array(size)].map((_, i) => {
+          return (
+            <S.Input
+              ref={inputs[i]}
+              key={i}
+              type="text"
+              maxLength={1}
+              disabled={disabled}
+              onChange={handleChange}
+              onPaste={handlePaste}
+              onKeyDown={handleKeyDown}
+              {...props}
+            />
+          )
+        })}
+      </S.InputWrapper>
+      {!!error && <S.Error>{error}</S.Error>}
+      {loading && <S.Loading>{loading}</S.Loading>}
+    </S.Wrapper>
   )
 }
 
