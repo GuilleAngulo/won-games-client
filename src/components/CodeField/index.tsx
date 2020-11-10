@@ -14,52 +14,52 @@ const CodeField = ({ size = 6, ...props }: CodeFieldProps) => {
     )
   }, [size])
 
-  // function handleChange(
-  //   ref: React.RefObject<HTMLInputElement>,
-  //   e: React.ChangeEvent<HTMLInputElement>
-  // ) {
-  //   if (ref.current?.nextElementSibling && ref.current?.value) {
-  //     const next = ref.current?.nextElementSibling as HTMLInputElement
-  //     next.focus()
-  //     next.select()
-  //   }
-  // }
+  function handleChange(event: React.ChangeEvent) {
+    const element = event.target as HTMLInputElement
+    const { value } = element
+    const nextInput = element.nextElementSibling as HTMLInputElement
 
-  function handlePaste(
-    ref: React.RefObject<HTMLInputElement>,
-    e: React.ClipboardEvent<HTMLInputElement>
-  ) {
-    if (!ref.current?.previousElementSibling) {
-      const paste = e.clipboardData.getData('text')
-      inputs.forEach((input: React.RefObject<HTMLInputElement>, index) => {
-        input.current!.value = paste[index] || ''
-      })
+    if (nextInput && value) {
+      nextInput.focus()
+      nextInput.select()
     }
   }
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const input = e.target
-    if (input.nextElementSibling && input.value) {
-      const next = input.nextElementSibling as HTMLInputElement
-      next.focus()
-      next.select()
-    }
-  }
+  function handleKeyDown(event: React.KeyboardEvent) {
+    const element = event.target as HTMLInputElement
+    const { value } = element
+    const { key } = event
 
-  function handleKeyDown(
-    ref: React.RefObject<HTMLInputElement>,
-    e: React.KeyboardEvent<HTMLInputElement>
-  ) {
-    if (e.key === 'Enter') {
-      const next = ref.current?.nextElementSibling as HTMLInputElement
+    if (key === 'Enter') {
+      const next = element.nextElementSibling as HTMLInputElement
       next?.focus()
       next?.select()
     }
 
-    if (e.key === 'Backspace' && !ref.current?.value) {
-      const previous = ref.current?.previousElementSibling as HTMLInputElement
+    if (key === 'Backspace' && !value) {
+      const previous = element.previousElementSibling as HTMLInputElement
       previous?.focus()
-      previous?.select()
+      //previous?.select()
+      //Don't delete previous input
+      event.preventDefault()
+    }
+  }
+
+  function handlePaste(event: React.ClipboardEvent) {
+    const element = event.target as HTMLInputElement
+    const pastedText = event.clipboardData.getData('text')
+
+    // If paste on first position, fill the rest (avoiding loop if pasted text length is 1 or less)
+    if (!element.previousElementSibling && pastedText.length > 1) {
+      inputs.forEach((input: React.RefObject<HTMLInputElement>, index) => {
+        input.current!.value = pastedText[index] || ''
+      })
+    }
+    // If the pasted code is same as digits, fill all (no matter in which position is pasted)
+    if (pastedText.length === size) {
+      inputs.forEach((input: React.RefObject<HTMLInputElement>, index) => {
+        input.current!.value = pastedText[index]
+      })
     }
   }
 
@@ -73,8 +73,8 @@ const CodeField = ({ size = 6, ...props }: CodeFieldProps) => {
             type="text"
             maxLength={1}
             onChange={handleChange}
-            onPaste={(event) => handlePaste(inputs[i], event)}
-            onKeyDown={(event) => handleKeyDown(inputs[i], event)}
+            onPaste={handlePaste}
+            onKeyDown={handleKeyDown}
             {...props}
           />
         )
