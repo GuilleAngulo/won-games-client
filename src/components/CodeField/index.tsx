@@ -63,13 +63,19 @@ const CodeField = ({
     // If paste on first position, fill the rest (avoiding loop if pasted text length is 1 or less)
     if (!element.previousElementSibling && pastedText.length > 1) {
       inputs.forEach((input: React.RefObject<HTMLInputElement>, index) => {
-        input.current!.value = pastedText[index] || ''
+        if (input.current == null) {
+          return
+        }
+        input.current.value = pastedText[index] || ''
       })
     }
     // If the pasted code is same as digits, fill all (no matter in which position is pasted)
     if (pastedText.length === size) {
       inputs.forEach((input: React.RefObject<HTMLInputElement>, index) => {
-        input.current!.value = pastedText[index]
+        if (input.current == null) {
+          return
+        }
+        input.current.value = pastedText[index]
       })
     }
   }

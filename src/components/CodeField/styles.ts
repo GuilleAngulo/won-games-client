@@ -12,7 +12,7 @@ export const InputWrapper = styled.fieldset`
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: ${theme.spacings.xxsmall} 0;
+    margin: ${theme.spacings.xxsmall} 0;
     border: none;
   `}
 `
@@ -25,7 +25,7 @@ export const Input = styled.input`
     font-family: ${theme.font.family};
     font-weight: ${theme.font.bold};
     border: 0.2rem solid;
-    border-color: ${theme.colors.lightGray};
+    border-color: ${theme.colors.primary};
     transition: background border ${theme.transition.fast};
     position: relative;
     outline: none;
@@ -42,7 +42,7 @@ export const Input = styled.input`
 
 export const Legend = styled.legend`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
+    font-size: ${theme.font.sizes.medium};
     color: ${theme.colors.black};
     cursor: pointer;
   `}
@@ -51,7 +51,7 @@ export const Legend = styled.legend`
 export const Error = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.red};
-    font-size: ${theme.font.sizes.xsmall};
+    font-size: ${theme.font.sizes.small};
 
     &::before {
       content: '\\d7';
@@ -67,7 +67,7 @@ export const Loading = styled.span`
     position: relative;
     padding-left: 2rem;
     color: ${theme.colors.primary};
-    font-size: ${theme.font.sizes.xsmall};
+    font-size: ${theme.font.sizes.small};
 
     &::before {
       content: '';
