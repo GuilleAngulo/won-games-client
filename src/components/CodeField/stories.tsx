@@ -35,5 +35,5 @@ export const withError: Story = (args) => (
 )
 
 withError.args = {
-  error: 'Incorrect code...'
+  error: 'Wrong confirmation code...'
 }

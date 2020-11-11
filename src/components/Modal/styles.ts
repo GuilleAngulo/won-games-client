@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.main``
+import * as ButtonStyles from 'components/Button/styles'
 
 export const Overlay = styled.div`
   ${({ theme }) => css`
@@ -12,19 +12,12 @@ export const Overlay = styled.div`
     overflow: auto;
     z-index: ${theme.layers.alwaysOnTop};
 
-    display: flex;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
-
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
   `}
 `
-export const ModalWrapper = styled.div`
+export const Modal = styled.div`
   ${({ theme }) => css`
-    /*width: 50%;
-    height: 50%;*/
     background-color: ${theme.colors.white};
     position: absolute;
     top: 50%;
@@ -36,15 +29,47 @@ export const ModalWrapper = styled.div`
   `}
 `
 
+export const Wrapper = styled.main`
+  ${({ theme }) => css`
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding: ${theme.spacings.small};
+
+    ${ButtonStyles.Wrapper} {
+      svg {
+        width: 2.4rem;
+      }
+    }
+  `}
+`
+
 export const CloseButton = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
     position: absolute;
     right: 0;
-    top: -0.5rem;
+    top: 0;
     cursor: pointer;
     svg {
       width: 2.5rem;
     }
+  `}
+`
+
+export const Message = styled.div`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.xsmall};
+    color: ${theme.colors.darkGray};
+    padding-bottom: ${theme.spacings.xxsmall};
+    font-style: italic;
+  `}
+`
+
+export const Header = styled.div``
+
+export const Body = styled.div`
+  ${({ theme }) => css`
+    padding-bottom: ${theme.spacings.xsmall};
   `}
 `

@@ -31,7 +31,7 @@ export const Input = styled.input`
     outline: none;
     background: ${theme.colors.lightGray};
     padding: 0 ${theme.spacings.xsmall};
-    margin: 0 ${theme.spacings.xxsmall};
+    /*margin: 0 ${theme.spacings.xxsmall};*/
 
     &:focus-within {
       border-color: ${theme.colors.primary};

@@ -9,17 +9,36 @@ export default {
   args: {
     onClose: () => console.log('Closed'),
     isOpen: true,
-    children: <div style={{ width: '300px' }}>Relleno</div>
-    //children: <CodeField size={5} label="Enter the verification code" />
+    header: <h2>This is the Modal Header</h2>
   },
   argTypes: {
-    onClose: { action: 'closed' }
+    onClose: { action: 'closed' },
+    header: {
+      type: ''
+    },
+    children: {
+      type: ''
+    }
   }
 } as Meta
 
 export const Default: Story = (args) => (
+  <Modal {...args}>
+    <div>This is the content of the modal.</div>
+  </Modal>
+)
+
+export const TwoFactorAuthentication: Story = (args) => (
   <>
     <FormSignUp />
-    <Modal {...args} />
+    <Modal {...args}>
+      <CodeField size={5} label="Please enter the verification code" />
+    </Modal>
   </>
 )
+
+TwoFactorAuthentication.args = {
+  header: '',
+  title: 'Verification Code',
+  message: 'We just send a message text to: +55 (**) **** *567'
+}
