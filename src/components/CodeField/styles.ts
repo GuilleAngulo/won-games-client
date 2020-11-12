@@ -6,12 +6,13 @@ type WrapperProps = Pick<CodeFieldProps, 'disabled'> & {
   hasError?: boolean
 } & { isLoading?: boolean }
 
-export const InputWrapper = styled.fieldset`
-  ${({ theme }) => css`
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
+export const InputWrapper = styled.fieldset<CodeFieldProps>`
+  ${({ theme, size }) => css`
+    display: grid;
+    grid-template-columns: repeat(${size}, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 1rem;
+    justify-items: start;
     margin: ${theme.spacings.xxsmall} 0;
     border: none;
   `}
@@ -31,11 +32,18 @@ export const Input = styled.input`
     outline: none;
     background: ${theme.colors.lightGray};
     padding: 0 ${theme.spacings.xsmall};
-    /*margin: 0 ${theme.spacings.xxsmall};*/
 
     &:focus-within {
       border-color: ${theme.colors.primary};
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
+    }
+
+    &:::before {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+      padding-bottom: calc(100%);
     }
   `}
 `

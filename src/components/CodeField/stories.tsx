@@ -6,8 +6,7 @@ export default {
   component: CodeField,
   args: {
     size: 6,
-    label: 'Enter the verification code',
-    labelFor: 'Code',
+    legend: 'Enter the verification code',
     disabled: false
   }
 } as Meta

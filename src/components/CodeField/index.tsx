@@ -1,9 +1,9 @@
-import { InputHTMLAttributes, useState, useEffect, createRef } from 'react'
+import { useState, useEffect, createRef, InputHTMLAttributes } from 'react'
 import * as S from './styles'
 
 export type CodeFieldProps = {
   size?: number
-  label?: string
+  legend?: string
   disabled?: boolean
   error?: string
   loading?: string
@@ -11,7 +11,7 @@ export type CodeFieldProps = {
 
 const CodeField = ({
   size = 6,
-  label,
+  legend,
   disabled = false,
   error,
   loading,
@@ -26,6 +26,11 @@ const CodeField = ({
   }, [size])
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    // Do nothing if the event was already processed
+    if (event.defaultPrevented) {
+      return
+    }
+
     const element = event.currentTarget
     const { value } = element
     const nextInput = element.nextElementSibling as HTMLInputElement
@@ -37,6 +42,11 @@ const CodeField = ({
   }
 
   function handleKeyDown(event: React.KeyboardEvent) {
+    // Do nothing if the event was already processed
+    if (event.defaultPrevented) {
+      return
+    }
+
     const element = event.target as HTMLInputElement
     const { value } = element
     const { key } = event
@@ -45,6 +55,7 @@ const CodeField = ({
       const next = element.nextElementSibling as HTMLInputElement
       next?.focus()
       next?.select()
+      event.preventDefault()
     }
 
     if (key === 'Backspace' && !value) {
@@ -82,14 +93,17 @@ const CodeField = ({
 
   return (
     <S.Wrapper disabled={disabled} hasError={!!error} isLoading={!!loading}>
-      {!!label && <S.Legend>{label}</S.Legend>}
-      <S.InputWrapper>
+      {!!legend && <S.Legend>{legend}</S.Legend>}
+      <S.InputWrapper size={size}>
         {[...Array(size)].map((_, i) => {
           return (
             <S.Input
               ref={inputs[i]}
               key={i}
+              defaultValue=""
               type="text"
+              aria-posinset={i + 1}
+              aria-setsize={size}
               maxLength={1}
               disabled={disabled}
               onChange={handleChange}

@@ -68,7 +68,7 @@ export const Message = styled.div`
 
 export const Header = styled.div``
 
-export const Body = styled.div`
+export const Content = styled.div`
   ${({ theme }) => css`
     padding-bottom: ${theme.spacings.xsmall};
   `}

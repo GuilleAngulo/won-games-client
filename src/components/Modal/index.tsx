@@ -1,7 +1,6 @@
 import { Close } from '@styled-icons/material-outlined'
 import { useEffect, useState, useCallback } from 'react'
 import Heading from 'components/Heading'
-import { CheckCircleOutline } from '@styled-icons/material-outlined'
 import * as S from './styles'
 import Button from 'components/Button'
 
@@ -9,21 +8,21 @@ export type ModalProps = {
   onClose?: () => void
   children?: React.ReactNode
   isOpen?: boolean
-  header?: React.ReactNode
-  // title?: string
-  // content?: string
-  // message?: string
+  title?: string
+  message?: string
+  buttonLabel?: string
+  buttonIcon?: JSX.Element
 }
 
 const Modal = ({
   isOpen,
   onClose,
-  header,
-  children
-}: // title,
-// content,
-// message
-ModalProps) => {
+  title,
+  children,
+  message,
+  buttonLabel,
+  buttonIcon
+}: ModalProps) => {
   const [modal, setModal] = useState<HTMLDivElement | null>(null)
   const onDialog = useCallback((node) => {
     if (node !== null) {
@@ -69,16 +68,16 @@ ModalProps) => {
             <S.CloseButton onClick={onClose} role="button">
               <Close aria-label="Close dialog box" />
             </S.CloseButton>
-            <S.Header>{header}</S.Header>
-            <S.Body>{children}</S.Body>
-            {/* <Heading color="black" lineBottom lineColor="secondary">
-              {title}
-            </Heading>
-            <S.Body>{children}</S.Body>
+            <S.Header>
+              <Heading color="black" lineBottom lineColor="secondary">
+                {title}
+              </Heading>
+            </S.Header>
+            <S.Content>{children} </S.Content>
             <S.Message>{message}</S.Message>
-            <Button icon={<CheckCircleOutline />} fullWidth size="large">
-              Verify
-            </Button> */}
+            <Button icon={buttonIcon} fullWidth size="large">
+              {buttonLabel}
+            </Button>
           </S.Wrapper>
         </S.Modal>
       </S.Overlay>
