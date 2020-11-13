@@ -94,7 +94,11 @@ const CodeField = ({
   return (
     <S.Wrapper disabled={disabled} hasError={!!error} isLoading={!!loading}>
       {!!legend && <S.Legend>{legend}</S.Legend>}
-      <S.InputWrapper size={size}>
+      <S.InputWrapper
+        size={size}
+        onPaste={handlePaste}
+        onKeyDown={handleKeyDown}
+      >
         {[...Array(size)].map((_, i) => {
           return (
             <S.Input
@@ -107,8 +111,8 @@ const CodeField = ({
               maxLength={1}
               disabled={disabled}
               onChange={handleChange}
-              onPaste={handlePaste}
-              onKeyDown={handleKeyDown}
+              //onPaste={handlePaste}
+              //onKeyDown={handleKeyDown}
               {...props}
             />
           )
