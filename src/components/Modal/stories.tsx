@@ -21,6 +21,9 @@ export default {
     children: {
       type: ''
     }
+  },
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta
 
