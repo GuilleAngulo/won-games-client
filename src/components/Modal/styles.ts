@@ -18,6 +18,7 @@ export const Overlay = styled.div`
 `
 export const Modal = styled.div`
   ${({ theme }) => css`
+    min-width: calc(100% / 4);
     background-color: ${theme.colors.white};
     position: absolute;
     top: 50%;
@@ -26,6 +27,7 @@ export const Modal = styled.div`
     border-radius: ${theme.border.radius};
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all ease 1s;
   `}
 `
 
@@ -38,7 +40,7 @@ export const Wrapper = styled.main`
 
     ${ButtonStyles.Wrapper} {
       svg {
-        width: 2.4rem;
+        width: 2rem;
       }
     }
   `}

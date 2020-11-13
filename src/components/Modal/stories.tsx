@@ -15,6 +15,9 @@ export default {
   },
   argTypes: {
     onClose: { action: 'closed' },
+    buttonIcon: {
+      type: ''
+    },
     children: {
       type: ''
     }
