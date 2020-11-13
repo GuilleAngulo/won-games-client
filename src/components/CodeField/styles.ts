@@ -31,19 +31,11 @@ export const Input = styled.input`
     position: relative;
     outline: none;
     background: ${theme.colors.lightGray};
-    padding: 0 ${theme.spacings.xsmall};
+    text-align: center;
 
     &:focus-within {
       border-color: ${theme.colors.primary};
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
-    }
-
-    &:::before {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-      padding-bottom: calc(100%);
     }
   `}
 `
