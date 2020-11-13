@@ -157,7 +157,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="b5c6378f-c727-48ec-af18-36531b29aa3a"
+              aria-describedby="3d92971c-a4b7-4d30-a739-c484e9c4ef77"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -203,7 +203,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="18d4cca6-1741-48c5-93db-d47d96e1fd76"
+              aria-describedby="fd5fc9dc-a992-4eee-bcb2-9390ed8606a2"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
