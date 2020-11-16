@@ -1,13 +1,38 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import GameInfo from '.'
 
-describe('<GameInfo />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<GameInfo />)
+const props = {
+  title: 'My Game Title',
+  description: 'Game Description',
+  price: '210,00'
+}
 
-    expect(screen.getByRole('heading', { name: /GameInfo/i })).toBeInTheDocument()
+describe('<GameInfo />', () => {
+  it('should render game information', () => {
+    const { container } = renderWithTheme(<GameInfo {...props} />)
+
+    expect(
+      screen.getByRole('heading', { name: /my game title/i })
+    ).toBeInTheDocument()
+
+    expect(screen.getByText(/game description/i)).toBeInTheDocument()
+
+    expect(screen.getByText(/\$210,00/)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render button', () => {
+    renderWithTheme(<GameInfo {...props} />)
+
+    expect(
+      screen.getByRole('button', { name: /add to cart/i })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('button', { name: /wishlist/i })
+    ).toBeInTheDocument()
   })
 })
