@@ -16,7 +16,7 @@ describe('<Menu />', () => {
   it('should handle the open/close mobile menu', () => {
     renderWithTheme(<Menu />)
 
-    // slecionar o nosso MenuFull
+    // selecionar o nosso MenuFull
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
 
     //verificar se o menu tá escondido
