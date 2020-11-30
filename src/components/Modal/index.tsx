@@ -7,7 +7,8 @@ import Button from 'components/Button'
 export type ModalProps = {
   children?: React.ReactNode
   isOpen: boolean
-  setIsOpen: (val: boolean) => void
+  setIsOpen: (value: boolean) => void
+  onSubmit?: (value: string) => void
   title?: string
   message?: string
   buttonLabel?: string
@@ -17,6 +18,7 @@ export type ModalProps = {
 const Modal = ({
   isOpen,
   setIsOpen,
+  onSubmit,
   title,
   children,
   message,
@@ -24,6 +26,7 @@ const Modal = ({
   buttonIcon
 }: ModalProps) => {
   const [modal, setModal] = useState<HTMLDivElement | null>(null)
+  const [value, setValue] = useState('')
   const onDialog = useCallback((node) => {
     if (node !== null) {
       setModal(node)
@@ -76,7 +79,12 @@ const Modal = ({
           </S.Header>
           <S.Content>{children} </S.Content>
           <S.Message>{message}</S.Message>
-          <Button icon={buttonIcon} fullWidth size="large">
+          <Button
+            icon={buttonIcon}
+            onClick={() => !!onSubmit && onSubmit(value)}
+            fullWidth
+            size="large"
+          >
             {buttonLabel}
           </Button>
         </S.Wrapper>
