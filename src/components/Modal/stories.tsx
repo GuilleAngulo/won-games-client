@@ -13,6 +13,7 @@ export default {
     buttonLabel: 'Button'
   },
   argTypes: {
+    onSubmit: { action: 'submit' },
     buttonIcon: {
       type: ''
     },

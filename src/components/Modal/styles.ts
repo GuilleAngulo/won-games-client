@@ -73,6 +73,7 @@ export const CloseButton = styled.div`
     position: absolute;
     right: 0;
     top: 0;
+    padding: 0.4rem 0.4rem 0 0;
     cursor: pointer;
     svg {
       width: 2.5rem;
