@@ -2,8 +2,22 @@ import styled, { css } from 'styled-components'
 
 import * as ButtonStyles from 'components/Button/styles'
 
-export const Overlay = styled.div`
-  ${({ theme }) => css`
+type ModalProps = {
+  isOpen: boolean
+}
+
+const modalModifiers = {
+  open: () => css`
+    opacity: 1;
+  `,
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+}
+
+export const Overlay = styled.div<ModalProps>`
+  ${({ theme, isOpen }) => css`
     position: fixed;
     top: 0;
     right: 0;
@@ -14,10 +28,14 @@ export const Overlay = styled.div`
 
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
+    transition: ${theme.transition.default};
+
+    ${isOpen && modalModifiers.open()}
+    ${!isOpen && modalModifiers.close()}
   `}
 `
-export const Modal = styled.div`
-  ${({ theme }) => css`
+export const Modal = styled.div<ModalProps>`
+  ${({ theme, isOpen }) => css`
     min-width: calc(100% / 4);
     background-color: ${theme.colors.white};
     position: absolute;
@@ -27,7 +45,10 @@ export const Modal = styled.div`
     border-radius: ${theme.border.radius};
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    transition: all ease 1s;
+    transition: ${theme.transition.default};
+
+    ${isOpen && modalModifiers.open()}
+    ${!isOpen && modalModifiers.close()}
   `}
 `
 

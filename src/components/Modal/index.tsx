@@ -5,9 +5,9 @@ import * as S from './styles'
 import Button from 'components/Button'
 
 export type ModalProps = {
-  onClose?: () => void
   children?: React.ReactNode
-  isOpen?: boolean
+  isOpen: boolean
+  setIsOpen: (val: boolean) => void
   title?: string
   message?: string
   buttonLabel?: string
@@ -16,7 +16,7 @@ export type ModalProps = {
 
 const Modal = ({
   isOpen,
-  onClose,
+  setIsOpen,
   title,
   children,
   message,
@@ -50,38 +50,38 @@ const Modal = ({
     // }
 
     if (event.key === 'Escape') {
-      onClose && onClose()
+      setIsOpen(false)
     }
     // Avoid it being handled twice
     //event.preventDefault()
   }
 
-  if (!isOpen) {
-    return null
-  }
-
   return (
-    isOpen && (
-      <S.Overlay>
-        <S.Modal ref={onDialog} role="dialog" aria-modal="true">
-          <S.Wrapper>
-            <S.CloseButton onClick={onClose} role="button">
-              <Close aria-label="Close dialog box" />
-            </S.CloseButton>
-            <S.Header>
-              <Heading color="black" lineBottom lineColor="secondary">
-                {title}
-              </Heading>
-            </S.Header>
-            <S.Content>{children} </S.Content>
-            <S.Message>{message}</S.Message>
-            <Button icon={buttonIcon} fullWidth size="large">
-              {buttonLabel}
-            </Button>
-          </S.Wrapper>
-        </S.Modal>
-      </S.Overlay>
-    )
+    <S.Overlay isOpen={isOpen}>
+      <S.Modal
+        ref={onDialog}
+        isOpen={isOpen}
+        aria-hidden={!isOpen}
+        role="dialog"
+        aria-modal="true"
+      >
+        <S.Wrapper>
+          <S.CloseButton onClick={() => setIsOpen(false)} role="button">
+            <Close aria-label="Close dialog box" />
+          </S.CloseButton>
+          <S.Header>
+            <Heading color="black" lineBottom lineColor="secondary">
+              {title}
+            </Heading>
+          </S.Header>
+          <S.Content>{children} </S.Content>
+          <S.Message>{message}</S.Message>
+          <Button icon={buttonIcon} fullWidth size="large">
+            {buttonLabel}
+          </Button>
+        </S.Wrapper>
+      </S.Modal>
+    </S.Overlay>
   )
 }
 

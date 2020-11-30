@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components'
+import styled, { css, keyframes, DefaultTheme } from 'styled-components'
 import { TextFieldProps } from '.'
 
 type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
@@ -47,7 +47,8 @@ export const Label = styled.label`
 export const Icon = styled.div<IconPositionProps>`
   ${({ theme, iconPosition }) => css`
     display: flex;
-    width: 2.2rem;
+    flex-flow: nowrap;
+    width: 2.2em;
     color: ${theme.colors.gray};
     order: ${iconPosition === 'right' ? 1 : 0};
 
@@ -111,6 +112,8 @@ const wrapperModifiers = {
   loading: (theme: DefaultTheme) => css`
     ${InputWrapper} {
       border-color: ${theme.colors.primary};
+      animation: ${glow(theme.colors.primary)} 0.6s ease-in-out infinite
+        alternate;
     }
   `,
   disabled: (theme: DefaultTheme) => css`
@@ -133,4 +136,14 @@ export const Wrapper = styled.div<WrapperProps>`
     ${isLoading && wrapperModifiers.loading(theme)}
     ${disabled && wrapperModifiers.disabled(theme)}
   `}
+`
+
+const glow = (color: string) => keyframes`
+  from {
+    box-shadow: 0 0 0px ${color};
+  }
+
+  to {
+    box-shadow: 0 0 10px 1px ${color};
+  }
 `

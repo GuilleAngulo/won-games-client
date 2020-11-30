@@ -1,20 +1,18 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Modal from '.'
 import CodeField from 'components/CodeField'
-import FormSignUp from 'pages/sign-up'
 import { CheckCircleOutline } from '@styled-icons/material-outlined'
+import { useState } from 'react'
+import Button from 'components/Button'
 
 export default {
   title: 'Modal',
   component: Modal,
   args: {
-    onClose: () => console.log('Closed'),
-    isOpen: true,
     title: 'Modal Title',
     buttonLabel: 'Button'
   },
   argTypes: {
-    onClose: { action: 'closed' },
     buttonIcon: {
       type: ''
     },
@@ -27,20 +25,45 @@ export default {
   }
 } as Meta
 
-export const Default: Story = (args) => (
-  <Modal {...args}>
-    <p>This is the body of the modal.</p>
-  </Modal>
-)
+export const Default: Story = (args) => {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '4rem'
+        }}
+      >
+        <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+      </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} {...args}>
+        <p>This is the body of the modal.</p>
+      </Modal>
+    </>
+  )
+}
 
-export const Verification: Story = (args) => (
-  <>
-    <FormSignUp />
-    <Modal {...args}>
-      <CodeField size={5} legend="Please enter the verification code" />
-    </Modal>
-  </>
-)
+export const Verification: Story = (args) => {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '4rem'
+        }}
+      >
+        <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
+      </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} {...args}>
+        <CodeField size={5} legend="Please enter the verification code" />
+      </Modal>
+    </>
+  )
+}
 
 Verification.args = {
   title: 'Verification Code',
