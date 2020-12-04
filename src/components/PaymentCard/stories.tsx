@@ -15,7 +15,7 @@ export default {
     size: 'large',
     number: '4567 3456 5677 4332',
     date: '04/21',
-    name: 'GUILLERMO A ALONSO',
+    initialName: 'NICOLAS CAGE',
     flag: <Visa />
   }
 } as Meta
