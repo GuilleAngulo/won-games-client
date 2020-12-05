@@ -55,22 +55,6 @@ export const Title = styled.h3`
   `}
 `
 
-/* export const DownloadLink = styled.a`
-  ${({ theme }) => css`
-    &::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-    color: ${theme.colors.primary};
-    margin-left: ${theme.spacings.xxsmall};
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  `}
-` */
-
 export const DownloadLink = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.primary};

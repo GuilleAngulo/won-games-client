@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme, keyframes } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 
 type CardProps = {
@@ -14,7 +14,7 @@ export const Container = styled.div`
     height: 100%;
     position: absolute;
     padding: ${theme.spacings.xsmall};
-    animation: ${fadeIn} ${theme.transition.default};
+    overflow-x: hidden;
   `}
 `
 
@@ -58,7 +58,7 @@ export const Date = styled.h3`
     letter-spacing: 0.2rem;
     grid-column: 1 / -1;
     grid-row: 4 / span 2;
-    align-self: end;
+    align-self: center;
     margin-left: ${theme.spacings.xxsmall};
 
     & > span {
@@ -176,14 +176,4 @@ export const Wrapper = styled.div<CardProps>`
       ${!!size && wrapperModifiers[size](theme)}
     `};
   `}
-`
-
-const fadeIn = keyframes`
-from {
-    opacity: 0 ;
-  }
-
-  to {
-    opacity:1;
-  }
 `

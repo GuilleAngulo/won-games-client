@@ -71,7 +71,10 @@ exports[`<FormSignIn /> should render the form 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 2.2rem;
+  -webkit-flex-flow: nowrap;
+  -ms-flex-flow: nowrap;
+  flex-flow: nowrap;
+  width: 2.2em;
   color: #8F8F8F;
   -webkit-order: 0;
   -ms-flex-order: 0;
@@ -157,7 +160,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="3d92971c-a4b7-4d30-a739-c484e9c4ef77"
+              aria-describedby="da347b68-f6a4-45c8-af36-db34b3573eb3"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -203,7 +206,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="fd5fc9dc-a992-4eee-bcb2-9390ed8606a2"
+              aria-describedby="0f179c32-b41b-4d0c-96b9-1164c08794a1"
               aria-invalid="false"
               aria-live="polite"
               class="c5"

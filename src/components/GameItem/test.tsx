@@ -37,7 +37,7 @@ describe('<GameItem />', () => {
   it('should render the payment info', () => {
     const paymentInfo = {
       flag: 'mastercard',
-      img: '/img/master-card.png',
+      image: '/img/master-card.png',
       number: '**** **** **** 4326',
       purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
     }
@@ -46,7 +46,7 @@ describe('<GameItem />', () => {
 
     expect(screen.getByRole('img', { name: paymentInfo.flag })).toHaveAttribute(
       'src',
-      paymentInfo.flag
+      paymentInfo.image
     )
 
     expect(screen.getByText(paymentInfo.number)).toBeInTheDocument()

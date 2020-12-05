@@ -40,7 +40,10 @@ exports[`<FormSignUp /> should render the form 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 2.2rem;
+  -webkit-flex-flow: nowrap;
+  -ms-flex-flow: nowrap;
+  flex-flow: nowrap;
+  width: 2.2em;
   color: #8F8F8F;
   -webkit-order: 0;
   -ms-flex-order: 0;
@@ -144,7 +147,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="4b3c6308-d9a5-4b2a-b493-a3ab38464235"
+              aria-describedby="8851c40b-b701-42f2-bd2b-ea84b38b27ff"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -183,7 +186,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="f08b4757-403a-4efa-9d73-6fff862e2071"
+              aria-describedby="4779daf6-5fac-40e4-83f5-12eb625e9f65"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -229,7 +232,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="e84cff24-e86d-4bfd-afd8-34f7a1d2a28f"
+              aria-describedby="5999a662-ecd8-4022-9b51-4439ba74793f"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -275,7 +278,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="061829d9-6a3a-4b0d-bee8-39fdf4891d0e"
+              aria-describedby="1da64575-c727-47f4-bd8f-a4f6a5a9aecb"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
