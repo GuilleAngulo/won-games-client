@@ -147,7 +147,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="8851c40b-b701-42f2-bd2b-ea84b38b27ff"
+              aria-describedby="e71bcc3d-4e90-4219-a572-73d60f25ce35"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -186,7 +186,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="4779daf6-5fac-40e4-83f5-12eb625e9f65"
+              aria-describedby="b52ebec6-f7da-441b-b4da-ffcd52f5ee3d"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -232,7 +232,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="5999a662-ecd8-4022-9b51-4439ba74793f"
+              aria-describedby="d258bd7a-ac06-42ef-9123-a7aabfe88eac"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -278,7 +278,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="1da64575-c727-47f4-bd8f-a4f6a5a9aecb"
+              aria-describedby="a97d663e-65fd-4532-96fd-f6e50b1345e1"
               aria-invalid="false"
               aria-live="polite"
               class="c5"

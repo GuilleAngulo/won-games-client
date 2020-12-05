@@ -46,7 +46,10 @@ exports[`<TextField /> should render with error 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 2.2rem;
+  -webkit-flex-flow: nowrap;
+  -ms-flex-flow: nowrap;
+  flex-flow: nowrap;
+  width: 2.2em;
   color: #8F8F8F;
   -webkit-order: 0;
   -ms-flex-order: 0;
@@ -118,6 +121,7 @@ exports[`<TextField /> should render with error 1`] = `
       aria-live="polite"
       class="c8"
       id="TextField"
+      name="TextField"
       type="text"
       value=""
     />
