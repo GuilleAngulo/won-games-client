@@ -17,6 +17,11 @@ export default {
     date: '04/21',
     initialName: 'NICOLAS CAGE',
     flag: <Visa />
+  },
+  parameters: {
+    backgrounds: {
+      default: 'won-light'
+    }
   }
 } as Meta
 
