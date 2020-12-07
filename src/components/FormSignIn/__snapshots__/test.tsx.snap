@@ -43,6 +43,10 @@ exports[`<FormSignIn /> should render the form 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #EAEAEA;
   border-radius: 0.2rem;
   padding: 0 1.6rem;
@@ -71,10 +75,6 @@ exports[`<FormSignIn /> should render the form 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: nowrap;
-  -ms-flex-flow: nowrap;
-  flex-flow: nowrap;
-  width: 2.2em;
   color: #8F8F8F;
   -webkit-order: 0;
   -ms-flex-order: 0;
@@ -82,7 +82,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
 }
 
 .c3 > svg {
-  width: 100%;
+  width: 2.2rem;
 }
 
 .c6 {
@@ -160,7 +160,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="f6bc09a0-bd23-49bf-9dca-e5ceaff389fd"
+              aria-describedby="6adbc32b-4dc1-4f48-bfad-6d6e868e34f0"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -206,7 +206,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="2329fd4a-542d-4e38-ba29-18d24b511149"
+              aria-describedby="33157ea0-42b5-4fb5-9d44-b9d29accead1"
               aria-invalid="false"
               aria-live="polite"
               class="c5"

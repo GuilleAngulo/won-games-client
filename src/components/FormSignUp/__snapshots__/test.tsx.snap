@@ -12,6 +12,10 @@ exports[`<FormSignUp /> should render the form 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #EAEAEA;
   border-radius: 0.2rem;
   padding: 0 1.6rem;
@@ -40,10 +44,6 @@ exports[`<FormSignUp /> should render the form 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: nowrap;
-  -ms-flex-flow: nowrap;
-  flex-flow: nowrap;
-  width: 2.2em;
   color: #8F8F8F;
   -webkit-order: 0;
   -ms-flex-order: 0;
@@ -51,7 +51,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
 }
 
 .c3 > svg {
-  width: 100%;
+  width: 2.2rem;
 }
 
 .c7 {
@@ -147,7 +147,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="e71bcc3d-4e90-4219-a572-73d60f25ce35"
+              aria-describedby="ab4c628b-4cae-47f6-bb6f-9bd196af59b4"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -186,7 +186,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="b52ebec6-f7da-441b-b4da-ffcd52f5ee3d"
+              aria-describedby="f68f54d0-5619-4ce2-8c80-75a5342f879f"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -232,7 +232,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="d258bd7a-ac06-42ef-9123-a7aabfe88eac"
+              aria-describedby="d7b3e271-e864-4053-9f2e-676a1654df41"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
@@ -278,7 +278,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="a97d663e-65fd-4532-96fd-f6e50b1345e1"
+              aria-describedby="0e5af3e3-35ed-45c5-8cc0-abab3be6add8"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
