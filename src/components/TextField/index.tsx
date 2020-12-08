@@ -13,7 +13,7 @@ export type TextFieldProps = {
   disabled?: boolean
   error?: string
   loading?: string
-} & InputHTMLAttributes<HTMLInputElement>
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'onInput'>
 
 const TextField = ({
   label,
