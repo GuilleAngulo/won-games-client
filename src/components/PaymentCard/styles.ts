@@ -14,7 +14,7 @@ export const Container = styled.div`
     height: 100%;
     position: absolute;
     padding: ${theme.spacings.xsmall};
-    overflow-x: hidden;
+    overflow: hidden;
   `}
 `
 

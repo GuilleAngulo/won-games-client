@@ -46,7 +46,10 @@ const TextField = ({
           {...(label ? { id: name } : {})}
           {...props}
         />
-        <Visibility onClick={() => setVisible((prevState) => !prevState)}>
+        <Visibility
+          onClick={() => setVisible((prevState) => !prevState)}
+          isEmpty={!value.length}
+        >
           {visible ? (
             <NotVisible aria-label="Hide password" title="Hide password" />
           ) : (

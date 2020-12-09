@@ -24,15 +24,30 @@ export const PasswordInput = styled(Input)`
   `}
 `
 
-export const Visibility = styled(Icon)`
-  ${({ theme }) => css`
+const visibilityModifiers = {
+  empty: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+}
+
+type VisibilityProps = {
+  isEmpty?: boolean
+}
+
+export const Visibility = styled(Icon)<VisibilityProps>`
+  ${({ theme, isEmpty }) => css`
     order: 1;
     color: ${darken(0.2, theme.colors.lightGray)};
     cursor: pointer;
+    opacity: 1;
+    transition: opacity ${theme.transition.default};
 
     &:hover {
       color: ${theme.colors.gray};
       transition: ${theme.transition.fast};
     }
+
+    ${isEmpty && visibilityModifiers.empty()};
   `}
 `
