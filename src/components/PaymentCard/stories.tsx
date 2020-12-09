@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import PaymentCard, { PaymentCardProps } from '.'
 
-import Visa from './flags/Visa'
+import { Visa, Mastercard } from '@styled-icons/simple-icons'
 
 export default {
   title: 'PaymentCard',
@@ -59,6 +59,6 @@ Glassmorphism.args = {
   number: '4567 3456 5677 4332',
   date: '04/21',
   initialName: 'NICOLAS CAGE',
-  flag: <Visa />,
+  flag: <Mastercard />,
   glassmorphism: true
 }

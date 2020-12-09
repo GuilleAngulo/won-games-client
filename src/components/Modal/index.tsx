@@ -26,7 +26,7 @@ const Modal = ({
   buttonIcon
 }: ModalProps) => {
   const [modal, setModal] = useState<HTMLDivElement | null>(null)
-  const [value, setValue] = useState('')
+  const [value] = useState('')
   const onDialog = useCallback((node) => {
     if (node !== null) {
       setModal(node)

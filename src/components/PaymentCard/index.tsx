@@ -18,12 +18,12 @@ const PaymentCard = ({
   initialName = '',
   glassmorphism = false
 }: PaymentCardProps) => {
-  const [name, setName] = useState(initialName)
+  const [name] = useState(initialName)
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.currentTarget.value
-    setName(newValue)
-  }
+  // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newValue = e.currentTarget.value
+  //   setName(newValue)
+  // }
   return (
     <S.Wrapper size={size} glassmorphism={glassmorphism}>
       <S.Container>

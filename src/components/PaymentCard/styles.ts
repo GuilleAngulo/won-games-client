@@ -87,22 +87,26 @@ export const Name = styled.h3`
 `
 
 export const Flag = styled.div`
-  width: 5.4rem;
-  height: 1.8rem;
-  grid-column: 4/ -1;
-  grid-row: 6;
-  justify-self: end;
-  align-self: end;
+  ${({ theme }) => css`
+    width: 4rem;
+    position: absolute;
+    grid-column: 4/ -1;
+    grid-row: 6;
+    justify-self: end;
+    align-self: flex-end;
+    color: ${theme.colors.white};
+    padding-bottom: 0.4rem;
+  `}
 `
 
 const wrapperModifiers = {
   normal: (theme: DefaultTheme) => css`
     width: 32rem;
     height: 20rem;
+    border-radius: 2.2rem;
 
     ${Flag} {
-      width: 6.75rem;
-      height: 2.25rem;
+      width: 4.2rem;
     }
 
     ${Contactless} {
@@ -127,6 +131,7 @@ const wrapperModifiers = {
   large: (theme: DefaultTheme) => css`
     width: 48rem;
     height: 30rem;
+    border-radius: 3.2rem;
 
     ${Container} {
       padding: ${theme.spacings.small};
@@ -134,7 +139,6 @@ const wrapperModifiers = {
 
     ${Flag} {
       width: 7.2rem;
-      height: 2.4rem;
     }
 
     ${Contactless} {
@@ -175,7 +179,7 @@ export const Wrapper = styled.div<CardProps>`
     position: relative;
     width: 28rem;
     height: 17.5rem;
-    border-radius: 32px;
+    border-radius: 2rem;
     box-shadow: rgba(39, 77, 153, 0.2) 0px 30px 60px,
       rgba(255, 255, 255, 0.3) 0px 0px 0px 0.5px inset;
     overflow: hidden;
