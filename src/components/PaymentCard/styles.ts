@@ -3,6 +3,7 @@ import media from 'styled-media-query'
 
 type CardProps = {
   size?: 'normal' | 'large'
+  glassmorphism?: boolean
 }
 
 export const Container = styled.div`
@@ -14,7 +15,6 @@ export const Container = styled.div`
     height: 100%;
     position: absolute;
     padding: ${theme.spacings.xsmall};
-    overflow: hidden;
   `}
 `
 
@@ -161,19 +161,27 @@ const wrapperModifiers = {
       letter-spacing: 0.4rem;
       word-spacing: 0.4em;
     }
+  `,
+  glassmorphism: () => css`
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 0.2rem solid rgba(255, 255, 255, 0.3);
+    border-left: 0.2rem solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
   `
 }
 
 export const Wrapper = styled.div<CardProps>`
-  ${({ theme, size }) => css`
+  ${({ theme, size, glassmorphism }) => css`
     position: relative;
     width: 28rem;
     height: 17.5rem;
     border-radius: 32px;
     box-shadow: rgba(39, 77, 153, 0.2) 0px 30px 60px,
       rgba(255, 255, 255, 0.3) 0px 0px 0px 0.5px inset;
+    overflow: hidden;
     ${media.greaterThan('small')`
       ${!!size && wrapperModifiers[size](theme)}
     `};
+    ${glassmorphism && wrapperModifiers.glassmorphism()}
   `}
 `

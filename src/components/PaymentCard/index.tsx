@@ -7,6 +7,7 @@ export type PaymentCardProps = {
   number: string
   date: string
   initialName?: string
+  glassmorphism?: boolean
 }
 
 const PaymentCard = ({
@@ -14,7 +15,8 @@ const PaymentCard = ({
   size = 'normal',
   number,
   date,
-  initialName = ''
+  initialName = '',
+  glassmorphism = false
 }: PaymentCardProps) => {
   const [name, setName] = useState(initialName)
 
@@ -23,7 +25,7 @@ const PaymentCard = ({
     setName(newValue)
   }
   return (
-    <S.Wrapper size={size}>
+    <S.Wrapper size={size} glassmorphism={glassmorphism}>
       <S.Container>
         <S.LogoWrapper>
           <Logo />
@@ -39,7 +41,7 @@ const PaymentCard = ({
         <S.Name>{name}</S.Name>
         {!!flag && <S.Flag>{flag}</S.Flag>}
       </S.Container>
-      <Card />
+      {!glassmorphism && <Card />}
     </S.Wrapper>
   )
 }
