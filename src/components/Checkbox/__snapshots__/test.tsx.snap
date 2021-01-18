@@ -82,7 +82,7 @@ exports[`<Checkbox /> should render with label 1`] = `
   line-height: 1.8rem;
 }
 
-<main
+<div
   class="c0"
 >
   <input
@@ -97,5 +97,5 @@ exports[`<Checkbox /> should render with label 1`] = `
   >
     checkbox label
   </label>
-</main>
-`;
+</div>
+`

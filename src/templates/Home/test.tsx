@@ -25,8 +25,7 @@ jest.mock('components/Showcase', () => {
     __esModule: true,
     default: function Mock() {
       return <div data-testid="Mock Showcase"></div>
-    },
-    foo: jest.fn(() => 43)
+    }
   }
 })
 
@@ -35,8 +34,7 @@ jest.mock('components/BannerSlider', () => {
     __esModule: true,
     default: function Mock() {
       return <div data-testid="Mock Banner Slider"></div>
-    },
-    foo: jest.fn(() => 43)
+    }
   }
 })
 

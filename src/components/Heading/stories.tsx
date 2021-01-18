@@ -6,7 +6,8 @@ export default {
   component: Heading,
   argTypes: {
     children: {
-      type: 'string'
+      type: 'string',
+      description: 'string'
     }
   }
 } as Meta
@@ -14,5 +15,6 @@ export default {
 export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
 
 Default.args = {
-  children: 'Most Populars'
+  children: 'Heading',
+  color: 'black'
 }
