@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
     position: relative;
   `}
 `
+
+/* type BadgeProps = {
+  show: boolean
+} */
 
 export const Badge = styled.span`
   ${({ theme }) => css`
@@ -23,5 +27,20 @@ export const Badge = styled.span`
     position: absolute;
     top: -0.4rem;
     right: -0.4rem;
+    animation: ${fadeIn} 0.4s;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
   `}
+`
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-0.6rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
