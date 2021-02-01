@@ -53,6 +53,7 @@ export const Icon = styled.div<IconPositionProps>`
 
     & > svg {
       width: 2.2rem;
+      max-height: 100%;
     }
   `}
 `

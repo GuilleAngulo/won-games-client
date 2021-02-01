@@ -5,11 +5,12 @@ export default {
   title: 'GameCard',
   component: GameCard,
   args: {
+    slug: 'population-zero',
     title: 'Population Zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 200,00'
+    price: 235,
+    promotionalPrice: 200
   },
   argTypes: {
     onFav: { action: 'clicked' },
@@ -33,4 +34,15 @@ WithRibbon.args = {
   ribbon: '20% OFF',
   ribbonSize: 'small',
   ribbonColor: 'primary'
+}
+
+export const FreeGame: Story<GameCardProps> = (args) => (
+  <div style={{ width: '30rem' }}>
+    <GameCard {...args} />
+  </div>
+)
+
+FreeGame.args = {
+  price: 0,
+  promotionalPrice: 0
 }

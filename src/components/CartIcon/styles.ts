@@ -9,10 +9,6 @@ export const Wrapper = styled.div`
   `}
 `
 
-/* type BadgeProps = {
-  show: boolean
-} */
-
 export const Badge = styled.span`
   ${({ theme }) => css`
     display: flex;
