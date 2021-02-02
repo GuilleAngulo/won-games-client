@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import * as S from './styles'
 import { ArrowGoBack } from '@styled-icons/remix-fill'
@@ -8,8 +8,6 @@ export type Error404Props = {
 }
 
 const Error404 = ({ images }: Error404Props) => {
-  const container = useRef()
-
   // const randomImage = () => images[Math.floor(Math.random() * images.length)]
   let i = 0
   const randomImage = () => {
@@ -31,6 +29,7 @@ const Error404 = ({ images }: Error404Props) => {
     drop.style.backgroundImage = bg
     drop.style.backgroundRepeat = 'no-repeat'
     drop.style.backgroundSize = 'cover'
+    drop.style.backgroundPosition = 'center'
 
     section!.appendChild(drop)
 
@@ -40,8 +39,9 @@ const Error404 = ({ images }: Error404Props) => {
   }
 
   useEffect(() => {
-    const interval = setInterval(dropImage, 200)
+    const interval = setInterval(dropImage, 250)
     return () => clearInterval(interval)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -53,7 +53,7 @@ const Error404 = ({ images }: Error404Props) => {
         </S.Description>
         <Link href="/" passHref>
           <S.Link>
-            Go back to store
+            Go back
             <ArrowGoBack size={20} />
           </S.Link>
         </Link>
@@ -64,19 +64,19 @@ const Error404 = ({ images }: Error404Props) => {
 
 export default Error404
 
-export type CardProps = {
-  image: string
-  size: number
-}
+// export type CardProps = {
+//   image: string
+//   size: number
+// }
 
-const Card = ({ image, size }: CardProps) => {
-  return <S.Card image={image} size={size} />
-}
+// const Card = ({ image, size }: CardProps) => {
+//   return <S.Card image={image} size={size} />
+// }
 
-export type ContainerProps = {
-  child: React.ReactNode
-}
+// export type ContainerProps = {
+//   child: React.ReactNode
+// }
 
-const Container = ({ child }: ContainerProps) => {
-  return <S.Wrapper> </S.Wrapper>
-}
+// const Container = ({ child }: ContainerProps) => {
+//   return <S.Wrapper> </S.Wrapper>
+// }

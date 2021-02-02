@@ -23,12 +23,13 @@ export const Wrapper = styled.section`
 export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;
-    width: 38rem;
+    width: 42rem;
     float: right;
     text-align: left;
     flex-direction: column;
     align-items: flex-end;
-    margin-top: ${theme.spacings.xxlarge};
+    margin-top: 8rem;
+    margin-right: ${theme.spacings.xxlarge};
   `}
 `
 

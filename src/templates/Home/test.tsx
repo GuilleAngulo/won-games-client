@@ -10,12 +10,15 @@ import Home from '.'
 
 const props = {
   banners: bannersMock,
+  newGamesTitle: 'New Games',
   newGames: [gamesMock[0]],
+  mostPopularGamesTitle: 'Most Popular Games',
   mostPopularHighlight: highlightsMock,
   mostPopularGames: [gamesMock[0]],
+  upcomingGamesTitle: 'Upcoming Games',
   upcomingGames: [gamesMock[0]],
   upcomingHighlight: highlightsMock,
-  upcomingMoreGames: [gamesMock[0]],
+  freeGamesTitle: 'Free Games',
   freeGames: [gamesMock[0]],
   freeHighlight: highlightsMock
 }
@@ -43,6 +46,6 @@ describe('<Home />', () => {
     renderWithTheme(<Home {...props} />)
 
     expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(4)
   })
 })

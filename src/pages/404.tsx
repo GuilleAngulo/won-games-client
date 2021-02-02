@@ -1,5 +1,5 @@
 import { Container } from 'components/Container'
-import Empty from 'components/Empty'
+// import Empty from 'components/Empty'
 import Error404, { Error404Props } from 'components/Error404'
 import Base from 'templates/Base'
 
