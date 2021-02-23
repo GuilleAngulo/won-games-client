@@ -1,29 +1,35 @@
 import React, { useEffect } from 'react'
-import Link from 'next/link'
 import * as S from './styles'
-import { ArrowGoBack } from '@styled-icons/remix-fill'
 
-export type Error404Props = {
-  images: string[]
+export type ImageProps = {
+  src: string
+  title?: string
+  url?: string
 }
 
-const Error404 = ({ images }: Error404Props) => {
+export type ImageTornadoProps = {
+  images: ImageProps[]
+}
+
+const ImageTornado = ({ images }: ImageTornadoProps) => {
   // const randomImage = () => images[Math.floor(Math.random() * images.length)]
   let i = 0
   const randomImage = () => {
     if (i === images.length) i = 0
-    return images[i++]
+    return images[i++].src
   }
-  const top = () => Math.random() * innerHeight + 88 + 'px'
+  // const top = () => Math.random() * innerHeight + 88 + 'px'
+  // const top = () => Math.random() * height + 'px'
 
   const dropImage = () => {
     const section = document.querySelector('section')
     const drop = document.createElement('span')
     const bg = `url("${randomImage()}")`
-    drop.style.top = top()
+    // drop.style.top = top()
     const random = Math.random()
     const width = (796 / 2) * random
     const height = (422 / 2) * random
+    drop.style.top = Math.random() * innerHeight + 'px'
     drop.style.width = width + 'px'
     drop.style.height = height + 'px'
     drop.style.backgroundImage = bg
@@ -46,23 +52,12 @@ const Error404 = ({ images }: Error404Props) => {
 
   return (
     <S.Wrapper>
-      <S.Content>
-        <S.Title>Oops... Page not found.</S.Title>
-        <S.Description>
-          Go back to the store and explore thousands of <strong>games</strong>.
-        </S.Description>
-        <Link href="/" passHref>
-          <S.Link>
-            Go back
-            <ArrowGoBack size={20} />
-          </S.Link>
-        </Link>
-      </S.Content>
+      <S.Content />
     </S.Wrapper>
   )
 }
 
-export default Error404
+export default ImageTornado
 
 // export type CardProps = {
 //   image: string
