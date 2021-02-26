@@ -73,7 +73,7 @@ describe('<Games />', () => {
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
-    screen.logTestingPlaygroundURL()
+    // screen.logTestingPlaygroundURL()
 
     expect(await screen.findByText(/Sample Game/i)).toBeInTheDocument()
 

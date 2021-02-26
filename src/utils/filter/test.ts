@@ -1,10 +1,11 @@
+import { ItemType } from 'components/ExploreSidebar'
 import { parseQueryStringToWhere, parseQueryStringToFilter } from '.'
 
 const filterItems = [
-  { name: 'price_lte', type: 'radio' },
-  { name: 'platforms', type: 'checkbox' },
-  { name: 'developers', type: 'checkbox' },
-  { name: 'sort', type: 'radio' }
+  { name: 'price_lte', type: 'radio' as ItemType },
+  { name: 'platforms', type: 'checkbox' as ItemType },
+  { name: 'developers', type: 'checkbox' as ItemType },
+  { name: 'sort', type: 'radio' as ItemType }
 ]
 
 const queryString = {
