@@ -29,6 +29,15 @@ jest.mock('templates/Base', () => {
   }
 })
 
+jest.mock('next/link', () => {
+  return {
+    __esModule: true,
+    default: function Mock({ children }: { children: React.ReactNode }) {
+      return <div>{children}</div>
+    }
+  }
+})
+
 // jest.mock('components/ExploreSidebar', () => {
 //   return {
 //     __esModule: true,
