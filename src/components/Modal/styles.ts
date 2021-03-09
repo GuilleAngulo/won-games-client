@@ -26,7 +26,7 @@ export const Overlay = styled.div<ModalProps>`
     overflow: auto;
     z-index: ${theme.layers.alwaysOnTop};
 
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     transition: ${theme.transition.default};
 
