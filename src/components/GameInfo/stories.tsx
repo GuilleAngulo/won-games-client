@@ -18,3 +18,13 @@ export const Default: Story<GameInfoProps> = (args) => (
     <GameInfo {...args} />
   </div>
 )
+
+export const IsInCart: Story<GameInfoProps & CartContextData> = (args) => (
+  <div style={{ maxWidth: '144rem', margin: 'auto', padding: '1.5rem' }}>
+    <GameInfo {...args} />
+  </div>
+)
+
+IsInCart.args = {
+  isInCart: () => true
+}
