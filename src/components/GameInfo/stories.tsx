@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { CartContextData } from 'hooks/use-cart'
 import GameInfo, { GameInfoProps } from '.'
 import mockGame from './mock'
 

@@ -10,7 +10,6 @@ import PaymentOptions, { PaymentOptionsProps } from 'components/PaymentOptions'
 import { Info } from '@styled-icons/material-outlined/Info'
 
 import * as S from './styles'
-import Empty from 'components/Empty'
 
 export type CartProps = {
   recommendedTitle: string
@@ -23,8 +22,6 @@ const Cart = ({
   recommendedTitle,
   recommendedGames,
   recommendedHighlight,
-  items = [],
-  total,
   cards
 }: CartProps) => {
   const handlePayment = () => ({})
@@ -36,19 +33,11 @@ const Cart = ({
           My Cart
         </Heading>
 
-        {items.length ? (
-          <S.Content>
-            <CartList items={items} total={total} />
+        <S.Content>
+          <CartList />
 
-            <PaymentOptions cards={cards} handlePayment={handlePayment} />
-          </S.Content>
-        ) : (
-          <Empty
-            title="Your cart is empty"
-            description="Go back to the store and explore games and offers"
-            hasLink
-          />
-        )}
+          <PaymentOptions cards={cards} handlePayment={handlePayment} />
+        </S.Content>
 
         <S.Text>
           <Info size={20} /> Your purchase is protected by a secure connection
