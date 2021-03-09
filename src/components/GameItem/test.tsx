@@ -3,7 +3,8 @@ import { render, screen } from 'utils/test-utils'
 import GameItem from '.'
 
 const props = {
-  image: 'https://source.unsplash.com/user/willianjusten/151x70',
+  id: '1',
+  img: 'https://source.unsplash.com/user/willianjusten/151x70',
   title: 'Red Dead Redemption 2',
   price: 'R$ 215,00'
 }
@@ -18,7 +19,7 @@ describe('<GameItem />', () => {
 
     expect(
       screen.getByRole('img', { name: /red dead redemption 2/i })
-    ).toHaveAttribute('src', props.image)
+    ).toHaveAttribute('src', props.img)
 
     expect(screen.getByText(/R\$ 215,00/i)).toBeInTheDocument()
   })
@@ -36,7 +37,7 @@ describe('<GameItem />', () => {
   it('should render the payment info', () => {
     const paymentInfo = {
       flag: 'mastercard',
-      image: '/img/master-card.png',
+      img: '/img/master-card.png',
       number: '**** **** **** 4326',
       purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
     }
@@ -45,7 +46,7 @@ describe('<GameItem />', () => {
 
     expect(screen.getByRole('img', { name: paymentInfo.flag })).toHaveAttribute(
       'src',
-      paymentInfo.image
+      paymentInfo.img
     )
 
     expect(screen.getByText(paymentInfo.number)).toBeInTheDocument()

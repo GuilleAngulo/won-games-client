@@ -5,12 +5,12 @@ import * as S from './styles'
 export type PaymentInfoProps = {
   number: string
   flag: string
-  image: string
+  img: string
   purchaseDate: string
 }
 
 export type GameItemProps = {
-  image: string
+  img: string
   title: string
   price: string
   downloadLink?: string
@@ -18,7 +18,7 @@ export type GameItemProps = {
 }
 
 const GameItem = ({
-  image,
+  img,
   title,
   price,
   downloadLink,
@@ -27,7 +27,7 @@ const GameItem = ({
   <S.Wrapper>
     <S.GameContent>
       <S.ImageBox>
-        <img src={image} alt={title} />
+        <img src={img} alt={title} />
       </S.ImageBox>
 
       <S.Content>
@@ -52,7 +52,7 @@ const GameItem = ({
         <p>{paymentInfo.purchaseDate}</p>
         <S.CardInfo>
           <span>{paymentInfo.number}</span>
-          <img src={paymentInfo.image} alt={paymentInfo.flag} />
+          <img src={paymentInfo.img} alt={paymentInfo.flag} />
         </S.CardInfo>
       </S.PaymentContent>
     )}
