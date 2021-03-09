@@ -1,5 +1,4 @@
-// import { render, screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import Modal from '.'
 
@@ -12,6 +11,6 @@ const props = {
 
 describe('<Modal />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<Modal {...props} />)
+    render(<Modal {...props} />)
   })
 })

@@ -1,12 +1,11 @@
-import { screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
 
 import PasswordField from '.'
 
 describe('<PasswordField />', () => {
   it('should render visibility toogle correctly', async () => {
-    renderWithTheme(<PasswordField label="PasswordField" />)
+    render(<PasswordField label="PasswordField" />)
 
     const showPassword = screen.getByRole('img', { name: /show password/i })
 

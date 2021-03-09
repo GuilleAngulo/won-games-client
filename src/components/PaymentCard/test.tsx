@@ -1,5 +1,4 @@
-// import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render } from 'utils/test-utils'
 
 import PaymentCard from '.'
 
@@ -12,6 +11,6 @@ const props = {
 
 describe('<PaymentCard />', () => {
   it('should render the heading', () => {
-    renderWithTheme(<PaymentCard {...props} />)
+    render(<PaymentCard {...props} />)
   })
 })

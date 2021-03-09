@@ -1,12 +1,11 @@
-import { screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from 'utils/test-utils'
 import userEvent from '@testing-library/user-event'
-import { renderWithTheme } from 'utils/tests/helpers'
 
 import CodeField from '.'
 
 describe('<CodeField />', () => {
   it('should render legend and with six inputs by default', () => {
-    renderWithTheme(<CodeField legend="My Legend" />)
+    render(<CodeField legend="My Legend" />)
 
     expect(
       screen.getByText(/my legend/i, { selector: 'legend' })
@@ -15,25 +14,25 @@ describe('<CodeField />', () => {
   })
 
   it('should render the number of inputs passed at size prop', () => {
-    renderWithTheme(<CodeField legend="My Legend" size={4} />)
+    render(<CodeField legend="My Legend" size={4} />)
 
     expect(screen.queryByRole('group')?.childElementCount).toBe(4)
   })
 
   it('should render a loading message if passed', () => {
-    renderWithTheme(<CodeField legend="My Legend" loading="Loading..." />)
+    render(<CodeField legend="My Legend" loading="Loading..." />)
 
     expect(screen.getByText(/loading.../i)).toBeInTheDocument()
   })
 
   it('should render a error message if passed', () => {
-    renderWithTheme(<CodeField legend="My Legend" error="Error message" />)
+    render(<CodeField legend="My Legend" error="Error message" />)
 
     expect(screen.getByText(/error message/i)).toBeInTheDocument()
   })
 
   it('should change input values when typing', async () => {
-    renderWithTheme(<CodeField legend="My Legend" />)
+    render(<CodeField legend="My Legend" />)
 
     const inputs = screen.queryByRole('group')
     const firstInput = inputs?.children[0] as HTMLInputElement
