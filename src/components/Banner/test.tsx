@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helpers'
+import { render, screen } from 'utils/test-utils'
 
 import Banner from '.'
 
@@ -13,7 +12,7 @@ const props = {
 
 describe('<Banner />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<Banner {...props} />)
+    const { container } = render(<Banner {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /defy death/i })
@@ -34,7 +33,7 @@ describe('<Banner />', () => {
   })
 
   it('should render a Ribbon with normal size and primary color by default', () => {
-    renderWithTheme(<Banner {...props} ribbon="My ribbon" />)
+    render(<Banner {...props} ribbon="My ribbon" />)
 
     const ribbon = screen.getByText(/my ribbon/i)
 
@@ -44,7 +43,7 @@ describe('<Banner />', () => {
   })
 
   it('should render a Ribbon with small size and secondary color', () => {
-    renderWithTheme(
+    render(
       <Banner
         {...props}
         ribbon="My ribbon"
