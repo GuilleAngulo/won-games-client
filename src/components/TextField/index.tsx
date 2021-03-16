@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid'
 import * as S from './styles'
 
 export type TextFieldProps = {
-  onInput?: (value: string) => void
+  onInputChange?: (value: string) => void
   label?: string
   // labelFor?: string
   initialValue?: string
@@ -13,7 +13,7 @@ export type TextFieldProps = {
   disabled?: boolean
   error?: string
   loading?: string
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'onInput'>
+} & InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
   label,
@@ -25,7 +25,7 @@ const TextField = ({
   disabled = false,
   error,
   loading,
-  onInput,
+  onInputChange,
   ...props
 }: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
@@ -34,7 +34,7 @@ const TextField = ({
     const newValue = e.currentTarget.value
     setValue(newValue)
 
-    !!onInput && onInput(newValue)
+    !!onInputChange && onInputChange(newValue)
   }
 
   const errorMessageId: string = uuid()
