@@ -13,7 +13,7 @@ const TextField = ({
   disabled = false,
   error,
   loading,
-  onInput,
+  onInputChange,
   ...props
 }: Omit<TextFieldProps, 'icon | iconPosition'>) => {
   const [value, setValue] = useState(initialValue)
@@ -23,7 +23,7 @@ const TextField = ({
     const newValue = e.currentTarget.value
     setValue(newValue)
 
-    !!onInput && onInput(newValue)
+    !!onInputChange && onInputChange(newValue)
   }
 
   return (
