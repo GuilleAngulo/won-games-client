@@ -1,12 +1,10 @@
 import { useState, InputHTMLAttributes } from 'react'
-import { v4 as uuid } from 'uuid'
 
 import * as S from './styles'
 
 export type TextFieldProps = {
   onInputChange?: (value: string) => void
   label?: string
-  // labelFor?: string
   initialValue?: string
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
@@ -18,7 +16,6 @@ export type TextFieldProps = {
 const TextField = ({
   label,
   name,
-  // labelFor = '',
   initialValue = '',
   icon,
   iconPosition = 'left',
@@ -37,7 +34,7 @@ const TextField = ({
     !!onInputChange && onInputChange(newValue)
   }
 
-  const errorMessageId: string = uuid()
+  const errorMessageId = `${name}_error`
 
   /**
    * In case of 'onInput' being an API call, use a debounce method to wait
@@ -64,7 +61,7 @@ const TextField = ({
         />
       </S.InputWrapper>
       {!!error && <S.Error id={errorMessageId}>{error}</S.Error>}
-      {loading && <S.Loading>{loading}</S.Loading>}
+      {!!loading && <S.Loading>{loading}</S.Loading>}
     </S.Wrapper>
   )
 }

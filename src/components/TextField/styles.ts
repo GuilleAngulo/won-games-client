@@ -123,8 +123,8 @@ const wrapperModifiers = {
   loading: (theme: DefaultTheme) => css`
     ${InputWrapper} {
       border-color: ${theme.colors.primary};
-      animation: ${glow(theme.colors.primary)} 0.6s ease-in-out infinite
-        alternate;
+      /* animation: ${glow(theme.colors.primary)} 0.6s ease-in-out infinite
+        alternate; */
     }
   `,
   disabled: (theme: DefaultTheme) => css`
