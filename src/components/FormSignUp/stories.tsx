@@ -1,9 +1,11 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
+import { withNextRouter } from 'storybook-addon-next-router'
 import FormSignUp from '.'
 
 export default {
   title: 'Form/FormSignUp',
-  component: FormSignUp
+  component: FormSignUp,
+  decorators: [withNextRouter]
 } as Meta
 
 export const Default: Story = () => (

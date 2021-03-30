@@ -4,7 +4,7 @@ import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 
 export default {
-  title: 'Showcase',
+  title: 'Elements/Showcase',
   component: Showcase,
   decorators: [
     (Story) => (
@@ -24,7 +24,8 @@ export const Default: Story<ShowcaseProps> = (args) => <Showcase {...args} />
 Default.args = {
   title: 'Most Popular',
   highlight: highlightMock,
-  games: gamesMock
+  games: gamesMock,
+  color: 'black'
 }
 
 export const WithoutHighlight: Story<ShowcaseProps> = (args) => (
@@ -33,7 +34,8 @@ export const WithoutHighlight: Story<ShowcaseProps> = (args) => (
 
 WithoutHighlight.args = {
   title: 'Most Popular',
-  games: gamesMock
+  games: gamesMock,
+  color: 'black'
 }
 
 export const WithoutGames: Story<ShowcaseProps> = (args) => (
@@ -42,5 +44,6 @@ export const WithoutGames: Story<ShowcaseProps> = (args) => (
 
 WithoutGames.args = {
   title: 'Most Popular',
-  highlight: highlightMock
+  highlight: highlightMock,
+  color: 'black'
 }

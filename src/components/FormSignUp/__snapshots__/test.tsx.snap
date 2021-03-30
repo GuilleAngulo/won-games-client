@@ -66,7 +66,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
   max-height: 100%;
 }
 
-.c7 {
+.c9 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -93,7 +93,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
   width: 100%;
 }
 
-.c7:hover {
+.c9:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }
 
@@ -101,17 +101,17 @@ exports[`<FormSignUp /> should render the form 1`] = `
   margin: 0.8rem 0;
 }
 
-.c0 .c6 {
+.c0 .c8 {
   margin: 3.2rem auto 1.6rem;
 }
 
-.c8 {
+.c10 {
   font-size: 1.4rem;
   color: #030517;
   text-align: center;
 }
 
-.c8 a {
+.c10 a {
   color: #3CD3C1;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -120,9 +120,104 @@ exports[`<FormSignUp /> should render the form 1`] = `
   transition: color,border,0.1s ease-in-out;
 }
 
-.c8 a:hover {
+.c10 a:hover {
   color: #29b3a3;
   border-bottom: 0.1rem solid #29b3a3;
+}
+
+.c6 {
+  color: #030517;
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-size: 1.6rem;
+  padding: 0.8rem 0;
+  padding-left: 2.4rem;
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 100%;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  width: calc(100% - 4.4rem);
+  -webkit-letter-spacing: 0.17rem;
+  -moz-letter-spacing: 0.17rem;
+  -ms-letter-spacing: 0.17rem;
+  letter-spacing: 0.17rem;
+  font-weight: 600;
+}
+
+.c6:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c6:-webkit-autofill::first-line {
+  font-family: Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-size: 1.6rem;
+}
+
+.c6::-webkit-input-placeholder {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.c6::-moz-placeholder {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.c6:-ms-input-placeholder {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.c6::placeholder {
+  -webkit-letter-spacing: 0;
+  -moz-letter-spacing: 0;
+  -ms-letter-spacing: 0;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #8F8F8F;
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  color: #b7b7b7;
+  cursor: pointer;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c7 > svg {
+  width: 2.2rem;
+  max-height: 100%;
+}
+
+.c7:hover {
+  color: #8F8F8F;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 <body>
@@ -244,15 +339,37 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="password_error"
               aria-invalid="false"
               aria-live="polite"
-              class="c5"
+              class="c6"
               name="password"
               placeholder="Password"
               type="password"
               value=""
             />
+            <div
+              class="c7"
+            >
+              <svg
+                aria-label="Show password"
+                class="c4"
+                fill="currentColor"
+                focusable="false"
+                role="img"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Show password
+                </title>
+                <path
+                  d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 011.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0114.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 011.172 8z"
+                />
+                <path
+                  d="M8 5.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM4.5 8a3.5 3.5 0 117 0 3.5 3.5 0 01-7 0z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
@@ -290,19 +407,41 @@ exports[`<FormSignUp /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="confirm_password_error"
               aria-invalid="false"
               aria-live="polite"
-              class="c5"
+              class="c6"
               name="confirm_password"
               placeholder="Confirm password"
               type="password"
               value=""
             />
+            <div
+              class="c7"
+            >
+              <svg
+                aria-label="Show password"
+                class="c4"
+                fill="currentColor"
+                focusable="false"
+                role="img"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Show password
+                </title>
+                <path
+                  d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 011.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0114.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 011.172 8z"
+                />
+                <path
+                  d="M8 5.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM4.5 8a3.5 3.5 0 117 0 3.5 3.5 0 01-7 0z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <button
-          class="c6 c7"
+          class="c8 c9"
           type="submit"
         >
           <span>
@@ -312,7 +451,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
           </span>
         </button>
         <div
-          class="c8"
+          class="c10"
         >
           Already have an account?
            

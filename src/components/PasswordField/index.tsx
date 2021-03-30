@@ -6,7 +6,7 @@ import { Lock } from '@styled-icons/material-outlined'
 import { Visibility, PasswordInput } from './styles'
 import * as S from 'components/TextField/styles'
 
-const TextField = ({
+const PasswordField = ({
   label,
   name,
   initialValue = '',
@@ -15,7 +15,7 @@ const TextField = ({
   loading,
   onInputChange,
   ...props
-}: Omit<TextFieldProps, 'icon | iconPosition'>) => {
+}: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
   const [visible, setVisible] = useState(false)
 
@@ -63,4 +63,4 @@ const TextField = ({
   )
 }
 
-export default TextField
+export default PasswordField

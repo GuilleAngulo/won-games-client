@@ -2,14 +2,14 @@ import Link from 'next/link'
 import {
   AccountCircle,
   Email,
-  ErrorOutline,
-  Lock
+  ErrorOutline
 } from '@styled-icons/material-outlined'
 import { FormWrapper, FormLink, FormLoading, FormError } from 'components/Form'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
+import PasswordField from 'components/PasswordField'
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { MUTATION_REGISTER } from 'graphql/mutations/register'
@@ -91,21 +91,17 @@ const FormSignUp = () => {
           onInputChange={(v) => handleInput('email', v)}
           icon={<Email />}
         />
-        <TextField
+        <PasswordField
           name="password"
           placeholder="Password"
-          type="password"
           error={fieldError?.password}
           onInputChange={(v) => handleInput('password', v)}
-          icon={<Lock />}
         />
-        <TextField
+        <PasswordField
           name="confirm_password"
           placeholder="Confirm password"
-          type="password"
           error={fieldError?.confirm_password}
           onInputChange={(v) => handleInput('confirm_password', v)}
-          icon={<Lock />}
         />
 
         <Button type="submit" size="large" fullWidth disabled={loading}>

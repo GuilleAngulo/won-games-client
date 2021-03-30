@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
+import { Email, ErrorOutline } from '@styled-icons/material-outlined'
 import { signIn } from 'next-auth/client'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
+import PasswordField from 'components/PasswordField'
 
 import * as S from './styles'
 import { FormLink, FormWrapper, FormLoading, FormError } from 'components/Form'
@@ -67,13 +68,11 @@ const FormSignIn = () => {
           onInputChange={(value) => handleInput('email', value)}
           icon={<Email />}
         />
-        <TextField
+        <PasswordField
           name="password"
           placeholder="Password"
-          type="password"
           error={fieldError?.password}
           onInputChange={(value) => handleInput('password', value)}
-          icon={<Lock />}
         />
         <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
 

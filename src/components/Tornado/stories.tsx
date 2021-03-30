@@ -1,15 +1,18 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Error404, { ImageTornadoProps } from '.'
+import Tornado, { ImageTornadoProps } from '.'
 import imageMock from './mock'
 
 export default {
-  title: 'Error404',
+  title: 'Experimental/Tornado',
+  component: Tornado,
   args: {
     images: imageMock
   },
-  component: Error404
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
-export const Default: Story<ImageTornadoProps> = (args) => (
-  <Error404 {...args} />
-)
+export const Default: Story<ImageTornadoProps> = (args) => <Tornado {...args} />

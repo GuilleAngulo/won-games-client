@@ -61,7 +61,7 @@ export const Wrapper = styled.main`
 
     ${ButtonStyles.Wrapper} {
       svg {
-        width: 2rem;
+        width: 2.4rem;
       }
     }
   `}

@@ -1,8 +1,6 @@
 import { Close } from '@styled-icons/material-outlined'
 import { useEffect, useState, useCallback } from 'react'
-import Heading from 'components/Heading'
 import * as S from './styles'
-import Button from 'components/Button'
 
 export type ModalProps = {
   children?: React.ReactNode
@@ -15,18 +13,9 @@ export type ModalProps = {
   buttonIcon?: JSX.Element
 }
 
-const Modal = ({
-  isOpen,
-  setIsOpen,
-  onSubmit,
-  title,
-  children,
-  message,
-  buttonLabel,
-  buttonIcon
-}: ModalProps) => {
+const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
   const [modal, setModal] = useState<HTMLDivElement | null>(null)
-  const [value] = useState('')
+
   const onDialog = useCallback((node) => {
     if (node !== null) {
       setModal(node)
@@ -72,21 +61,7 @@ const Modal = ({
           <S.CloseButton onClick={() => setIsOpen(false)} role="button">
             <Close aria-label="Close dialog box" />
           </S.CloseButton>
-          <S.Header>
-            <Heading color="black" lineBottom lineColor="secondary">
-              {title}
-            </Heading>
-          </S.Header>
-          <S.Content>{children} </S.Content>
-          <S.Message>{message}</S.Message>
-          <Button
-            icon={buttonIcon}
-            onClick={() => !!onSubmit && onSubmit(value)}
-            fullWidth
-            size="large"
-          >
-            {buttonLabel}
-          </Button>
+          {children}
         </S.Wrapper>
       </S.Modal>
     </S.Overlay>

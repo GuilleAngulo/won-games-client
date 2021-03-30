@@ -4,7 +4,7 @@ import Highlight, { HighlightProps } from '.'
 import item from './mock'
 
 export default {
-  title: 'Highlight',
+  title: 'UI/Highlight',
   component: Highlight,
   args: { ...item }
 } as Meta

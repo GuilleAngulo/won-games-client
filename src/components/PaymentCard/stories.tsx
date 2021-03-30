@@ -4,7 +4,7 @@ import PaymentCard, { PaymentCardProps } from '.'
 import { Visa, Mastercard } from '@styled-icons/simple-icons'
 
 export default {
-  title: 'PaymentCard',
+  title: 'Experimental/PaymentCard',
   component: PaymentCard,
   argTypes: {
     flag: {

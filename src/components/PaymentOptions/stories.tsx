@@ -4,7 +4,7 @@ import PaymentOptions, { PaymentOptionsProps } from '.'
 import cardsMock from './mock'
 
 export default {
-  title: 'PaymentOptions',
+  title: 'Cart/PaymentOptions',
   component: PaymentOptions,
   args: {
     cards: cardsMock

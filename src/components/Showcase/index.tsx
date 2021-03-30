@@ -20,7 +20,7 @@ const Showcase = ({
 }: ShowcaseProps) => (
   <S.Wrapper>
     {!!title && (
-      <Heading lineLeft lineColor="secondary">
+      <Heading lineLeft lineColor="secondary" color={color}>
         {title}
       </Heading>
     )}

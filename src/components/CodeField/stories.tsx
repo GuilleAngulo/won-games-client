@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import CodeField from '.'
 
 export default {
-  title: 'CodeField',
+  title: 'Experimental/CodeField',
   component: CodeField,
   args: {
     size: 6,
