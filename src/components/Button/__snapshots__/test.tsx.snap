@@ -31,6 +31,15 @@ exports[`<Button /> should render the medium size by default 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }
 
+.c0:focus {
+  outline-offset: 0.4rem;
+  outline: 0.2rem solid #F231A5;
+}
+
+.c0:focus:not(:focus-visible) {
+  outline: none;
+}
+
 <button
   class="c0"
 >
@@ -38,4 +47,4 @@ exports[`<Button /> should render the medium size by default 1`] = `
     Buy now
   </span>
 </button>
-`;
+`

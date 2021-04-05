@@ -134,6 +134,15 @@ exports[`<GameInfo /> should render game informations 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }
 
+.c6:focus {
+  outline-offset: 0.4rem;
+  outline: 0.2rem solid #F231A5;
+}
+
+.c6:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .c6 svg {
   width: 1.5rem;
 }
@@ -172,6 +181,15 @@ exports[`<GameInfo /> should render game informations 1`] = `
 
 .c8:hover {
   background: none;
+}
+
+.c8:focus {
+  outline-offset: 0.4rem;
+  outline: 0.2rem solid #F231A5;
+}
+
+.c8:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .c8 svg {

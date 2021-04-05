@@ -8,6 +8,6 @@ export default create({
   colorSecondary: theme.colors.secondary,
 
   brandTitle: 'Won Games',
-  brandUrl: 'https://won-games.com.br',
+  brandUrl: 'https://reactavancado.com.br/',
   brandImage: logo
 })

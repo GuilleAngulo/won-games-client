@@ -31,6 +31,15 @@ exports[`<Empty /> should render correctly 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }
 
+.c4:focus {
+  outline-offset: 0.4rem;
+  outline: 0.2rem solid #F231A5;
+}
+
+.c4:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -94,4 +103,4 @@ exports[`<Empty /> should render correctly 1`] = `
     </main>
   </div>
 </body>
-`;
+`

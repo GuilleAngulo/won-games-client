@@ -12,7 +12,11 @@ export default {
 } as Meta
 
 export const Default: Story = () => <CartIcon />
-export const withItems: Story = (args) => <CartIcon {...args} />
+export const withItems: Story = (args) => (
+  <div style={{ margin: '6rem' }}>
+    <CartIcon {...args} />
+  </div>
+)
 
 withItems.args = {
   quantity: 3

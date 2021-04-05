@@ -26,6 +26,12 @@ export const Badge = styled.span`
     animation: ${fadeIn} 0.4s;
     font-feature-settings: 'tnum';
     font-variant-numeric: tabular-nums;
+    cursor: default;
+    transition: transform ${theme.transition.default};
+
+    &:hover {
+      transform: scale(1.4);
+    }
   `}
 `
 

@@ -31,6 +31,15 @@ exports[`<Banner /> should render correctly 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }
 
+.c5:focus {
+  outline-offset: 0.4rem;
+  outline: 0.2rem solid #F231A5;
+}
+
+.c5:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .c0 {
   position: relative;
 }
@@ -150,4 +159,4 @@ exports[`<Banner /> should render correctly 1`] = `
     </a>
   </div>
 </main>
-`;
+`

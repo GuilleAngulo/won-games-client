@@ -36,6 +36,15 @@ exports[`<GameCard /> should render correctly 1`] = `
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }
 
+.c10:focus {
+  outline-offset: 0.4rem;
+  outline: 0.2rem solid #F231A5;
+}
+
+.c10:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .c10 svg {
   width: 1.5rem;
 }
