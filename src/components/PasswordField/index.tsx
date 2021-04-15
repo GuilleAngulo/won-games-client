@@ -17,7 +17,7 @@ const PasswordField = ({
   ...props
 }: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
-  const [visible, setVisible] = useState(false)
+  const [isVisible, setisVisible] = useState(false)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.currentTarget.value
@@ -34,7 +34,8 @@ const PasswordField = ({
           <Lock />
         </S.Icon>
         <PasswordInput
-          type={visible ? 'text' : 'password'}
+          // type={isVisible ? 'text' : 'password'}
+          isVisible={isVisible}
           onChange={onChange}
           value={value}
           iconPosition="left"
@@ -47,10 +48,10 @@ const PasswordField = ({
           {...props}
         />
         <Visibility
-          onClick={() => setVisible((prevState) => !prevState)}
+          onClick={() => setisVisible((prevState) => !prevState)}
           isEmpty={!value.length}
         >
-          {visible ? (
+          {isVisible ? (
             <NotVisible aria-label="Hide password" title="Hide password" />
           ) : (
             <Visible aria-label="Show password" title="Show password" />

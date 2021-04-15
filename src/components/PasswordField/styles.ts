@@ -15,12 +15,20 @@ const passwordModifiers = {
   `
 }
 
-export const PasswordInput = styled(Input)`
-  ${({ theme, type }) => css`
+export type PasswordInputProps = {
+  isVisible: boolean
+}
+
+export const PasswordInput = styled(Input).attrs<PasswordInputProps>(
+  ({ isVisible }) => ({
+    type: isVisible ? 'text' : 'password'
+  })
+)<PasswordInputProps>`
+  ${({ theme, isVisible }) => css`
     padding-left: ${theme.spacings.small};
     padding-right: ${theme.spacings.small};
     width: calc(100% - 4.4rem);
-    ${type === 'password' && passwordModifiers.password(theme)}
+    ${!isVisible && passwordModifiers.password(theme)}
   `}
 `
 
