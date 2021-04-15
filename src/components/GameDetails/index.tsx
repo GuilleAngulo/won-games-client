@@ -47,7 +47,7 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Release Date</S.Label>
-          <S.Description>
+          <S.Description dateTime={releaseDate}>
             {new Intl.DateTimeFormat('en-US', {
               day: 'numeric',
               month: 'short',

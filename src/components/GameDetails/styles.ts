@@ -34,7 +34,7 @@ export const Label = styled.h3`
   `}
 `
 
-export const Description = styled.p`
+export const Description = styled.time`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
