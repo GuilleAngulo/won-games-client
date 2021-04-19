@@ -106,6 +106,16 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
           data: { games: wishlistIds.filter((gameId: string) => gameId !== id) }
         }
       }
+      // optimisticResponse: {
+      //   __typename: 'updateWishlistPayload',
+      //   updateWishlist: {
+      //     wishlist: {
+      //       __typename: 'Wishlist',
+      //       id: wishlistId,
+      //       games: wishlistItems.filter(({ id: gameId }) => gameId !== id)
+      //     }
+      //   }
+      // }
     })
   }
 
