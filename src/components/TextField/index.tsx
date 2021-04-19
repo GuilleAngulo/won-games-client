@@ -54,13 +54,17 @@ const TextField = ({
           aria-live="polite"
           aria-busy={!!loading}
           aria-invalid={!!error}
-          aria-describedby={errorMessageId}
           name={name}
+          {...(error ? { 'aria-describedby': errorMessageId } : {})}
           {...(label ? { id: name } : {})}
           {...props}
         />
       </S.InputWrapper>
-      {!!error && <S.Error id={errorMessageId}>{error}</S.Error>}
+      {!!error && (
+        <S.Error id={errorMessageId} role="alert">
+          {error}
+        </S.Error>
+      )}
       {!!loading && <S.Loading>{loading}</S.Loading>}
     </S.Wrapper>
   )

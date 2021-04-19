@@ -141,6 +141,7 @@ exports[`<TextField /> should render with error 1`] = `
   <span
     class="c9"
     id="TextField_error"
+    role="alert"
   >
     Error message
   </span>

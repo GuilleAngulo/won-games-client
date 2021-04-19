@@ -276,7 +276,6 @@ exports[`<FormSignIn /> should render the form 1`] = `
             </div>
             <input
               aria-busy="false"
-              aria-describedby="email_error"
               aria-invalid="false"
               aria-live="polite"
               class="c5"
