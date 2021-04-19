@@ -1,12 +1,8 @@
 import userEvent from '@testing-library/user-event'
 import { WishlistContextDefaultValues } from 'hooks/use-wishlist'
-import { render, screen, act } from 'utils/test-utils'
+import { render, screen, act, waitFor } from 'utils/test-utils'
+import 'session.mock'
 import WishlistButton from '.'
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const useSession = jest.spyOn(require('next-auth/client'), 'useSession')
-const session = { jwt: '123', user: { email: 'lorem@ipsum.com' } }
-useSession.mockImplementation(() => [session])
 
 describe('<WishlistButton />', () => {
   it('should render a button to add to wishlist', () => {
@@ -104,7 +100,9 @@ describe('<WishlistButton />', () => {
       userEvent.click(screen.getByText(/add to wishlist/i))
     })
 
-    expect(wishlistProviderProps.addToWishlist).toHaveBeenCalledWith('1')
+    waitFor(() => {
+      expect(wishlistProviderProps.addToWishlist).toHaveBeenCalledWith('1')
+    })
   })
 
   it('should remove from wishlist', () => {
@@ -122,6 +120,8 @@ describe('<WishlistButton />', () => {
       userEvent.click(screen.getByText(/remove from wishlist/i))
     })
 
-    expect(wishlistProviderProps.removeFromWishlist).toHaveBeenCalledWith('1')
+    waitFor(() => {
+      expect(wishlistProviderProps.removeFromWishlist).toHaveBeenCalledWith('1')
+    })
   })
 })

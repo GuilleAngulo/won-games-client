@@ -82,12 +82,6 @@ exports[`<GameInfo /> should render game informations 1`] = `
   margin-bottom: 0.8rem;
 }
 
-.c7 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 .c1 {
   color: #030517;
   position: relative;
@@ -204,6 +198,12 @@ exports[`<GameInfo /> should render game informations 1`] = `
   color: #e20e8d;
 }
 
+.c7 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
 @media (min-width:768px) {
   .c0 .c2 {
     right: 2.4rem;
@@ -293,6 +293,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
     >
       <svg
         aria-hidden="true"
+        aria-label="Add to Wishlist"
         class="c7"
         fill="currentColor"
         focusable="false"
@@ -308,7 +309,7 @@ exports[`<GameInfo /> should render game informations 1`] = `
         />
       </svg>
       <span>
-        Wishlist
+        Add to Wishlist
       </span>
     </button>
   </div>
