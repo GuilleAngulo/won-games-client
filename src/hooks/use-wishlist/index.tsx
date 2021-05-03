@@ -16,7 +16,8 @@ import { gamesMapper } from 'utils/mappers'
 
 export type WishlistContextData = {
   items: GameCardProps[]
-  isInWishlist: (id: string) => boolean
+  // isInWishlist: (id: string) => boolean
+  isInWishlist: (id: string) => number
   addToWishlist: (id: string) => void
   removeFromWishlist: (id: string) => void
   loading: boolean
@@ -24,7 +25,8 @@ export type WishlistContextData = {
 
 export const WishlistContextDefaultValues = {
   items: [],
-  isInWishlist: () => false,
+  // isInWishlist: () => false,
+  isInWishlist: () => 0,
   addToWishlist: () => null,
   removeFromWishlist: () => null,
   loading: false
@@ -38,23 +40,25 @@ export type WishlistProviderProps = {
   children: React.ReactNode
 }
 
-const gameSkeleton = {
-  __typename: 'Game',
-  name: 'Game Name',
-  slug: 'game-slug',
-  cover: {
-    __typename: 'UploadFile',
-    url: '/cover.jpg'
-  },
-  developers: [
-    {
-      __typename: 'Developer',
-      name: 'Developer'
-    }
-  ],
-  price: ''
+const gameSkeleton = (id: string) => {
+  return {
+    __typename: 'Game',
+    id: '-' + id,
+    name: '',
+    slug: '',
+    cover: {
+      __typename: 'UploadFile',
+      url: ''
+    },
+    developers: [
+      {
+        __typename: 'Developer',
+        name: ''
+      }
+    ],
+    price: ''
+  }
 }
-
 const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const [session] = useSession()
   const [wishlistId, setWishlistId] = useState<string | null>()
@@ -101,8 +105,24 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     wishlistItems
   ])
 
-  const isInWishlist = (id: string) =>
-    wishlistItems.some((game) => game.id === id)
+  // const isInWishlist = (id: string) =>
+  //   wishlistItems.some((game) => game.id === id)
+
+  const isInWishlist = (id: string) => {
+    const index = wishlistItems.findIndex(
+      (game) => String(Math.abs(Number(game.id))) === id
+    )
+    //Not found
+    if (index === -1) return 0
+
+    // Found optimistic response
+    if (wishlistItems[index].id.startsWith('-')) {
+      return -1
+    }
+
+    // Found server response
+    return 1
+  }
 
   const addToWishlist = (id: string) => {
     if (!wishlistId) {
@@ -112,7 +132,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
           createWishlist: {
             wishlist: {
               id: String(Math.round(Math.random() * -1000000)),
-              games: [{ id, ...gameSkeleton }],
+              games: [gameSkeleton(id)],
               __typename: 'Wishlist'
             },
             __typename: 'createWishlistPayload'
@@ -150,7 +170,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
         updateWishlist: {
           wishlist: {
             id: wishlistId,
-            games: [...wishlistItems, { id, ...gameSkeleton }],
+            games: [...wishlistItems, gameSkeleton(id)],
             __typename: 'Wishlist'
           },
           __typename: 'updateWishlistPayload'

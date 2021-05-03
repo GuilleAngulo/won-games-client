@@ -53,9 +53,12 @@ describe('useWishlist', () => {
     //Wait to get the data
     await waitForNextUpdate()
 
-    expect(result.current.isInWishlist('1')).toBe(true)
-    expect(result.current.isInWishlist('2')).toBe(true)
-    expect(result.current.isInWishlist('3')).toBe(false)
+    // expect(result.current.isInWishlist('1')).toBe(true)
+    // expect(result.current.isInWishlist('2')).toBe(true)
+    // expect(result.current.isInWishlist('3')).toBe(false)
+    expect(result.current.isInWishlist('1')).toBe(1)
+    expect(result.current.isInWishlist('2')).toBe(1)
+    expect(result.current.isInWishlist('3')).toBe(0)
   })
 
   it('should add item into the wishlist creating a new list', async () => {
