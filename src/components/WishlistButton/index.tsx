@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/client'
 
 import Button, { ButtonProps } from 'components/Button'
-import { useWishlist } from 'hooks/use-wishlist'
+import { IsInWishlistResponse, useWishlist } from 'hooks/use-wishlist'
 
 import { FavoriteBorder } from '@styled-icons/material-outlined'
 
@@ -25,10 +25,8 @@ const WishlistButton = ({
     loading: loadingApollo
   } = useWishlist()
 
-  const handleClick = async () => {
-    return isInWishlist(id)
-      ? await removeFromWishlist(id)
-      : await addToWishlist(id)
+  const handleClick = () => {
+    return isInWishlist(id) ? removeFromWishlist(id) : addToWishlist(id)
   }
 
   const ButtonText = isInWishlist(id)
@@ -37,13 +35,13 @@ const WishlistButton = ({
 
   if (!session) return null
 
-  const isInWishlistNumber = isInWishlist(id)
-  const isOptimistic = isInWishlistNumber === -1
+  const isOptimistic = isInWishlist(id) === IsInWishlistResponse.optimistic
+
   return (
     <Button
       icon={
-        isInWishlistNumber ? (
-          <S.FavoriteIcon aria-label={ButtonText} optimistic={isOptimistic} />
+        isInWishlist(id) ? (
+          <S.FavoriteIcon aria-label={ButtonText} isOptimistic={isOptimistic} />
         ) : (
           <FavoriteBorder aria-label={ButtonText} />
         )

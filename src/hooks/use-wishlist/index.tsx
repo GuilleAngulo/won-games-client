@@ -11,13 +11,21 @@ import {
 import { QUERY_WISHLIST, useQueryWishlist } from 'graphql/queries/wishlist'
 import { useSession } from 'next-auth/client'
 import { useMemo } from 'react'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useState } from 'react'
+import { createContext, useContext, useEffect } from 'react'
 import { gamesMapper } from 'utils/mappers'
+
+export const IsInWishlistResponse = {
+  true: 1,
+  false: 0,
+  optimistic: -1
+} as const
 
 export type WishlistContextData = {
   items: GameCardProps[]
-  // isInWishlist: (id: string) => boolean
-  isInWishlist: (id: string) => number
+  isInWishlist: (
+    id: string
+  ) => typeof IsInWishlistResponse[keyof typeof IsInWishlistResponse]
   addToWishlist: (id: string) => void
   removeFromWishlist: (id: string) => void
   loading: boolean
@@ -25,8 +33,7 @@ export type WishlistContextData = {
 
 export const WishlistContextDefaultValues = {
   items: [],
-  // isInWishlist: () => false,
-  isInWishlist: () => 0,
+  isInWishlist: () => IsInWishlistResponse.false,
   addToWishlist: () => null,
   removeFromWishlist: () => null,
   loading: false
@@ -40,7 +47,7 @@ export type WishlistProviderProps = {
   children: React.ReactNode
 }
 
-const gameSkeleton = (id: string) => {
+const optimisticGameResponse = (id: string) => {
   return {
     __typename: 'Game',
     id: '-' + id,
@@ -59,6 +66,7 @@ const gameSkeleton = (id: string) => {
     price: ''
   }
 }
+
 const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const [session] = useSession()
   const [wishlistId, setWishlistId] = useState<string | null>()
@@ -76,6 +84,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       }
     }
   )
+
   const [updateList, { loading: loadingUpdate }] = useMutation(
     MUTATION_UPDATE_WISHLIST,
     {
@@ -105,26 +114,22 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     wishlistItems
   ])
 
-  // const isInWishlist = (id: string) =>
-  //   wishlistItems.some((game) => game.id === id)
-
   const isInWishlist = (id: string) => {
     const index = wishlistItems.findIndex(
       (game) => String(Math.abs(Number(game.id))) === id
     )
-    //Not found
-    if (index === -1) return 0
 
-    // Found optimistic response
+    if (index === -1) return IsInWishlistResponse.false
+
     if (wishlistItems[index].id.startsWith('-')) {
-      return -1
+      return IsInWishlistResponse.optimistic
     }
 
-    // Found server response
-    return 1
+    return IsInWishlistResponse.true
   }
 
   const addToWishlist = (id: string) => {
+    // se não existir wishlist - cria
     if (!wishlistId) {
       return createList({
         variables: { input: { data: { games: [...wishlistItems, id] } } },
@@ -132,7 +137,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
           createWishlist: {
             wishlist: {
               id: String(Math.round(Math.random() * -1000000)),
-              games: [gameSkeleton(id)],
+              games: [optimisticGameResponse(id)],
               __typename: 'Wishlist'
             },
             __typename: 'createWishlistPayload'
@@ -159,6 +164,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       })
     }
 
+    // senão atualiza a wishlist existente
     return updateList({
       variables: {
         input: {
@@ -170,7 +176,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
         updateWishlist: {
           wishlist: {
             id: wishlistId,
-            games: [...wishlistItems, gameSkeleton(id)],
+            games: [...wishlistItems, optimisticGameResponse(id)],
             __typename: 'Wishlist'
           },
           __typename: 'updateWishlistPayload'
@@ -178,6 +184,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       }
     })
   }
+
   const removeFromWishlist = (id: string) => {
     return updateList({
       variables: {

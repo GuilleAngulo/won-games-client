@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
 export const Title = styled.div`
   ${({ theme }) => css`
@@ -9,6 +10,14 @@ export const Title = styled.div`
     align-items: center;
     padding-right: 2.4rem;
     z-index: ${theme.layers.alwaysOnTop};
+
+    &:focus {
+      outline-offset: 0.2rem;
+      outline: 0.2rem solid;
+      &:not(:focus-visible) {
+        outline: none;
+      }
+    }
   `}
 `
 
@@ -22,6 +31,7 @@ export const Content = styled.div`
     position: absolute;
     right: 0;
     z-index: ${theme.layers.alwaysOnTop};
+    cursor: auto;
 
     &::before {
       content: '';
@@ -55,12 +65,14 @@ const wrapperModifiers = {
   open: () => css`
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(0) scaleY(1);
+    visibility: visible;
   `,
   close: () => css`
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-2rem);
+    transform: translateY(-2rem) scaleY(0);
+    visibility: hidden;
   `
 }
 
@@ -70,9 +82,24 @@ export const Wrapper = styled.div<WrapperProps>`
     width: max-content;
     ${Content},
     ${Overlay} {
+      transform-origin: top center;
       transition: transform 0.2s ease-in, opacity ${theme.transition.default};
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
     }
+  `}
+`
+
+const arrowModifiers = {
+  open: () => css`
+    transform: rotate(180deg);
+  `
+}
+
+export const Chevron = styled(ChevronDown)<WrapperProps>`
+  ${({ isOpen, theme }) => css`
+    transition: transform ${theme.transition.default};
+    transform: rotate(0);
+    ${isOpen && arrowModifiers.open()};
   `}
 `

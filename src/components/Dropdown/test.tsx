@@ -8,7 +8,7 @@ describe('<Dropdown />', () => {
     const title = <h1 aria-label="toogle dropdown">Click here</h1>
 
     render(
-      <Dropdown title={title}>
+      <Dropdown title={title} arrow={true}>
         <span>content</span>
       </Dropdown>
     )
@@ -45,5 +45,17 @@ describe('<Dropdown />', () => {
 
     expect(overlay).toHaveStyle({ opacity: 0 })
     expect(overlay!.getAttribute('aria-hidden')).toBe('true')
+  })
+
+  it('should rotate arrow on open', () => {
+    const arrow = screen.getByLabelText(/dropdown arrow/i)
+
+    userEvent.click(screen.getByLabelText(/toogle dropdown/i))
+
+    expect(arrow).toHaveStyle({ transform: 'rotate(180deg)' })
+
+    userEvent.click(screen.getByLabelText(/toogle dropdown/i))
+
+    expect(arrow).toHaveStyle({ transform: 'rotate(0)' })
   })
 })

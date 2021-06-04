@@ -1,7 +1,7 @@
 import { MockedProvider } from '@apollo/client/testing'
 import { renderHook } from '@testing-library/react-hooks'
 import { act, waitFor } from 'utils/test-utils'
-import { useWishlist, WishlistProvider } from '.'
+import { IsInWishlistResponse, useWishlist, WishlistProvider } from '.'
 import {
   createWishlistMock,
   removeWishlistMock,
@@ -27,10 +27,10 @@ describe('useWishlist', () => {
       wrapper
     })
 
-    //Starts with loading state
+    // it starts loading the data
     expect(result.current.loading).toBe(true)
 
-    //Wait to get the data
+    // wait until get the data
     await waitForNextUpdate()
 
     expect(result.current.items).toStrictEqual([
@@ -39,7 +39,7 @@ describe('useWishlist', () => {
     ])
   })
 
-  it('should check if the game is inside wishlist', async () => {
+  it('should check if the game is in the wishlist', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <MockedProvider mocks={[wishlistMock]}>
         <WishlistProvider>{children}</WishlistProvider>
@@ -50,18 +50,15 @@ describe('useWishlist', () => {
       wrapper
     })
 
-    //Wait to get the data
+    // wait until get the data
     await waitForNextUpdate()
 
-    // expect(result.current.isInWishlist('1')).toBe(true)
-    // expect(result.current.isInWishlist('2')).toBe(true)
-    // expect(result.current.isInWishlist('3')).toBe(false)
-    expect(result.current.isInWishlist('1')).toBe(1)
-    expect(result.current.isInWishlist('2')).toBe(1)
-    expect(result.current.isInWishlist('3')).toBe(0)
+    expect(result.current.isInWishlist('1')).toBe(IsInWishlistResponse.true)
+    expect(result.current.isInWishlist('2')).toBe(IsInWishlistResponse.true)
+    expect(result.current.isInWishlist('3')).toBe(IsInWishlistResponse.false)
   })
 
-  it('should add item into the wishlist creating a new list', async () => {
+  it('should add item in wishlist creating a new list', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <MockedProvider mocks={[createWishlistMock]}>
         <WishlistProvider>{children}</WishlistProvider>
@@ -77,11 +74,10 @@ describe('useWishlist', () => {
     })
 
     await waitForNextUpdate()
-
     expect(result.current.items).toStrictEqual([wishlistItems[2]])
   })
 
-  it('should add item in wishlist updating the list', async () => {
+  it('should add item in wishlist updating the current list', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <MockedProvider mocks={[wishlistMock, updateWishlistMock]}>
         <WishlistProvider>{children}</WishlistProvider>
@@ -91,7 +87,8 @@ describe('useWishlist', () => {
     const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
       wrapper
     })
-    //Wait for the data to load
+
+    // wait for the data to load
     await waitForNextUpdate()
 
     act(() => {
@@ -113,7 +110,8 @@ describe('useWishlist', () => {
     const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
       wrapper
     })
-    //Wait for the data to load
+
+    // wait for the data to load
     await waitForNextUpdate()
 
     act(() => {

@@ -8,7 +8,7 @@ export const Card = styled.div`
     display: flex;
     align-items: center;
 
-    &::not(, :last-child) {
+    &::not(:last-child) {
       margin-bottom: ${theme.spacings.xsmall};
     }
 
