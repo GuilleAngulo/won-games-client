@@ -1,3 +1,6 @@
+import { loadStripe } from '@stripe/stripe-js'
+import { Elements } from '@stripe/react-stripe-js'
+
 import Heading from 'components/Heading'
 import { Container } from 'components/Container'
 import Base from 'templates/Base'
@@ -10,14 +13,19 @@ import PaymentForm from 'components/PaymentForm'
 import { Info } from '@styled-icons/material-outlined/Info'
 
 import * as S from './styles'
+import { Session } from 'next-auth'
+
+const stripe = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`)
 
 export type CartProps = {
+  session: Session
   recommendedTitle: string
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
 } & CartListProps
 
 const Cart = ({
+  session,
   recommendedTitle,
   recommendedGames,
   recommendedHighlight
@@ -32,7 +40,9 @@ const Cart = ({
         <S.Content>
           <CartList />
 
-          <PaymentForm />
+          <Elements stripe={stripe}>
+            <PaymentForm session={session} />
+          </Elements>
         </S.Content>
 
         <S.Text>
