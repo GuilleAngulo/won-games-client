@@ -35,6 +35,11 @@ export const Error = styled.p`
     padding-top: ${theme.spacings.xsmall};
     display: flex;
     align-items: center;
+    gap: 0.6rem;
+    svg {
+      align-self: baseline;
+      flex-shrink: 0;
+    }
   `}
 `
 export const FreeGames = styled.p`

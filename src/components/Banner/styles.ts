@@ -25,6 +25,19 @@ type ImageProps = {
   src: string
 }
 
+export const ImageWrapper = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 23rem;
+    background-color: ${theme.colors.lightGray};
+    position: relative;
+
+    ${media.greaterThan('medium')`
+      height: 58rem;
+    `}
+  `}
+`
+
 export const Image = styled.div<ImageProps>`
   ${({ theme, src }) => css`
     width: 100%;

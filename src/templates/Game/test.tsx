@@ -15,7 +15,7 @@ const props: GameTemplateProps = {
   gallery: galleryMock,
   description: `<h1>Custom HTML</h1>`,
   details: gameDetailsMock as GameDetailsProps,
-  upcomingTitle: 'Upcoming Games',
+  upcomingTitle: 'Upcoming games',
   upcomingGames: gamesMock,
   upcomingHighlight: highlightMock,
   recommendedTitle: 'You may like these games',
@@ -25,7 +25,7 @@ const props: GameTemplateProps = {
 jest.mock('templates/Base', () => ({
   __esModule: true,
   default: function Mock({ children }: { children: React.ReactNode }) {
-    return <div data-testid="Mock Base">{children} </div>
+    return <div data-testid="Mock Base">{children}</div>
   }
 }))
 
@@ -99,14 +99,8 @@ describe('<Game />', () => {
   it('should render the cover image', () => {
     render(<Game {...props} />)
 
-    const cover = screen.getByRole('image', { name: /cover/i })
-
-    expect(cover).toHaveStyle({
-      backgroundImage: 'url(bg-image.jpg)',
-      height: '39.5rem'
-    })
-
-    expect(cover).toHaveStyleRule('background-image', 'url(bg-image.jpg)')
+    const cover = screen.getByRole('img', { name: /Borderlands 3/i })
+      .parentElement
 
     expect(cover).toHaveStyleRule('height', '70rem', {
       media: '(min-width: 768px)'

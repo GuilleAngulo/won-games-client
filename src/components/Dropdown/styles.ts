@@ -65,13 +65,13 @@ const wrapperModifiers = {
   open: () => css`
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0) scaleY(1);
+    transform: translateY(0);
     visibility: visible;
   `,
   close: () => css`
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-2rem) scaleY(0);
+    transform: translateY(-2rem);
     visibility: hidden;
   `
 }
