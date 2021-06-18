@@ -59,11 +59,7 @@ const GameCard = ({
         {!!promotionalPrice && (
           <S.Price isPromotional>{formatPrice(price)}</S.Price>
         )}
-        {price ? (
-          <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
-        ) : (
-          <S.Price>FREE</S.Price>
-        )}
+        <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
         <CartButton id={id} />
       </S.BuyBox>
     </S.Content>
