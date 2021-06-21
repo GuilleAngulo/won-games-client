@@ -34,6 +34,10 @@ exports[`<FormSignIn /> should render the form 1`] = `
   width: 100%;
 }
 
+.c10 > span {
+  white-space: nowrap;
+}
+
 .c10:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958ab 50%);
 }

@@ -70,6 +70,10 @@ export const Wrapper = styled.button<WrapperProps>`
     padding: ${theme.spacings.xxsmall};
     text-decoration: none;
 
+    > span {
+      white-space: nowrap;
+    }
+
     &:hover {
       background: ${minimal
         ? 'none'
