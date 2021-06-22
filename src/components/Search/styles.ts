@@ -27,6 +27,7 @@ export const Result = styled.a`
     height: 10rem;
     font-size: ${theme.font.sizes.small};
     cursor: pointer;
+    text-decoration: none;
     border-radius: ${theme.border.radius};
     transition: background ${theme.transition.fast},
       color ${theme.transition.fast};
@@ -34,6 +35,10 @@ export const Result = styled.a`
     &:hover {
       color: ${theme.colors.white};
       background: ${theme.colors.primary};
+
+      * > time {
+        color: ${theme.colors.lightGray};
+      }
     }
   `}
 `
@@ -77,6 +82,13 @@ export const ImageWrapper = styled.div`
     position: relative;
     min-width: 22rem;
     height: 100%;
+  `}
+`
+
+export const Details = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: ${theme.spacings.xxsmall};
   `}
 `
 
@@ -220,6 +232,32 @@ export const Icon = styled.div`
       width: 2.4rem;
       height: 2.4rem;
     }
+  `}
+`
+
+export const Platform = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+`
+
+export const PlatformIcon = styled.div`
+  ${({ theme }) => css`
+    & > svg {
+      fill: ${theme.colors.lightGray};
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  `}
+`
+
+export const ReleaseYear = styled.time`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.xsmall};
+    font-weight: ${theme.font.bold};
+    color: ${theme.colors.gray};
+    margin: 0 ${theme.spacings.xxsmall};
   `}
 `
 

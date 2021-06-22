@@ -20,6 +20,7 @@ import {
   Search as SearchIcon,
   Close as CloseIcon
 } from '@styled-icons/material-outlined'
+import { Apple, Windows, Linux } from '@styled-icons/fa-brands'
 import * as S from './styles'
 
 const Search = () => {
@@ -91,6 +92,10 @@ const Results = connectStateResults(({ searchState }) =>
   searchState?.query ? <Hits /> : null
 )
 
+type Platform = {
+  name: 'windows' | 'linux' | 'mac'
+}
+
 export type GameHitProps = {
   id: string
   name: string
@@ -98,6 +103,8 @@ export type GameHitProps = {
   cover: GameFragment_cover | null
   slug: string
   price: number
+  platforms: Platform[]
+  release_date: string | null
 }
 
 export type HitsProps = {
@@ -121,6 +128,7 @@ const Hits = connectHits(({ hits }: HitsProps) => (
 const NoResults = () => (
   <S.NoResultsWrapper>
     <Image
+      placeholder="empty"
       src="/img/empty.svg"
       alt="A gamer in a couch playing videogame"
       width={110}
@@ -145,26 +153,47 @@ export type HitProps = {
   hit: GameHitProps
 }
 
-const Hit = ({ hit }: HitProps) => (
-  <Link href={`game/${hit.slug}`}>
-    <S.Result>
-      <S.ImageWrapper>
-        <Image
-          src={`${getImageUrl(hit.cover?.url)}`}
-          alt={hit.name}
-          layout="fill"
-          objectFit="cover"
-        />
-      </S.ImageWrapper>
-      <S.Info>
-        <S.Title>
-          <Highlight attribute="name" hit={hit} />
-        </S.Title>
-        <S.Price>{formatPrice(hit.price)}</S.Price>
-        <S.Description>
-          <Highlight attribute="short_description" hit={hit} />
-        </S.Description>
-      </S.Info>
-    </S.Result>
-  </Link>
-)
+const Hit = ({ hit }: HitProps) => {
+  const platformIcons = {
+    linux: <Linux title="Linux" />,
+    mac: <Apple title="Mac" />,
+    windows: <Windows title="Windows" />
+  }
+  const releaseYear =
+    hit.release_date && new Date(hit.release_date).getFullYear()
+
+  return (
+    <Link href={`game/${hit.slug}`} passHref>
+      <S.Result>
+        <S.ImageWrapper>
+          <Image
+            src={`${getImageUrl(hit.cover?.url)}`}
+            alt={hit.name}
+            layout="fill"
+            objectFit="cover"
+            placeholder="empty"
+          />
+        </S.ImageWrapper>
+        <S.Info>
+          <S.Title>
+            <Highlight attribute="name" hit={hit} />
+            {releaseYear && <S.ReleaseYear>{releaseYear}</S.ReleaseYear>}
+          </S.Title>
+          <S.Details>
+            <S.Price>{formatPrice(hit.price)}</S.Price>
+            <S.Platform>
+              {hit.platforms.map((icon: Platform) => (
+                <S.PlatformIcon key={`${hit.id}${icon.name}`}>
+                  {platformIcons[icon.name]}
+                </S.PlatformIcon>
+              ))}
+            </S.Platform>
+          </S.Details>
+          <S.Description>
+            <Highlight attribute="short_description" hit={hit} />
+          </S.Description>
+        </S.Info>
+      </S.Result>
+    </Link>
+  )
+}

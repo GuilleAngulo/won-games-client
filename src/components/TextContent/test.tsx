@@ -31,8 +31,9 @@ describe('<TextContent />', () => {
   it('should render the title color and background according to media query', () => {
     render(<TextContent {...props} />)
 
-    const wrapper = screen.getByRole('heading', { name: /description/i })
-      .parentElement
+    const wrapper = screen.getByRole('heading', {
+      name: /description/i
+    }).parentElement
 
     expect(wrapper).toHaveStyle({
       color: '#FAFAFA'

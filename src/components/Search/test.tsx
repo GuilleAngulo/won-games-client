@@ -27,13 +27,15 @@ jest.mock('react-instantsearch-dom', () => ({
 
   connectStateResults: jest
     .fn()
-    .mockImplementation((component) => () =>
-      component({ searching: true, searchState: { query: '' } })
+    .mockImplementation(
+      (component) => () =>
+        component({ searching: true, searchState: { query: '' } })
     ),
   connectSearchBox: jest
     .fn()
-    .mockImplementation((component) => (props: SearchBoxProps) =>
-      component({ ...props, currentRefinement: '', refine: jest.fn() })
+    .mockImplementation(
+      (component) => (props: SearchBoxProps) =>
+        component({ ...props, currentRefinement: '', refine: jest.fn() })
     ),
   connectHits: jest
     .fn()
